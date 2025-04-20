@@ -9,14 +9,14 @@ body {
 
 /* Header */
 .header {
+  display: flex;
+  flex-direction: row;
   position: fixed;
-  z-index: 2;
   top: 0;
+  margin-bottom: 10%;
   width: 100%;
   height: 70px;
   background-color: #219EBC;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1);
@@ -24,6 +24,7 @@ body {
 
 .logo {
   padding-left: 1rem;
+  width: 15rem;
 }
 
 .menuIcon {
@@ -119,8 +120,60 @@ body {
   color: #FB8500;
 }
 
+/* Battle Card */
+.battleCard {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding: 8px;
+  background-color: #219EBC;
+  border-radius: 24px;
+  border: 2px solid #000000;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+}
 
+.battleCard p {
+  padding: 5px;
+}
 
+.teamLogo {
+  width: 2rem;
+  border: 3px solid;
+  padding: 0.5rem;
+  border-radius: 90px;
+  background-color: #fff;
+}
+
+.vsLogo {
+  width: 4rem;
+}
+
+/* BattlePage */
+.battlePage {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.battlePageMainContainer {
+  width: auto;
+  padding: 1rem;
+  margin-top: 70px;
+  align-items: center;
+  text-align: center;
+  background-color: #FFF;
+  border-radius: 24px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+  border: 2px solid #000000;
+}
+.battlePage Button {
+  background-color: #FB8500;
+}
+
+.battlePageTitle {
+  font-size: 2rem;
+}
 
 
 

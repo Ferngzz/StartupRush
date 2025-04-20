@@ -1,4 +1,4 @@
-import startupRushLogo from '../assets/startup_rush_logo.svg'
+import startupRushLogo from '../assets/sr_logo.svg'
 import vsMenuIcon from '../assets/vs_menu_icon_color.svg'
 import '../App.css'
 import MenuIcon from '@mui/icons-material/Menu';
@@ -54,7 +54,6 @@ export function Header() {
                         </div>
                     </div> : null
             }
-
         </div>
     );
 }
