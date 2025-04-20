@@ -1,4 +1,3 @@
-import {Header} from "../components/Header.tsx";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -6,40 +5,30 @@ import Button from "@mui/material/Button";
 export function SignUpPage() {
 
     const fields: String[] = [
-        "Name", "Slogan", "Foundation Year"
+        "Nome", "Ano de Fundação", "Slogan"
     ]
 
     return (
         <Grid container
+              className="signUpPage"
               direction="column"
-              spacing={32}
-              sx={{
-                  justifyContent: "center",
-                  alignItems: "center",
-              }}
         >
-            <Grid size={12}>
-                <Header/>
-            </Grid>
             <Grid container
                   className="mainContainer"
                   direction="column"
-                  spacing={6}
-                  sx={{
-                      width: "50%",
-                  }}
+                  spacing={3}
             >
-                <p>Sign Up</p>
+                <p>Cadastrar Startup</p>
 
                 {
-                    fields.map((text: String) => (
+                    fields.map((text: String, i) => (
                         <TextField
                             className="textField"
                             label={text}
                             variant="outlined"
-                            color="error"
+                            key={i}
                         />
-                ))}
+                    ))}
 
                 <Button variant="contained">Confirm</Button>
             </Grid>
