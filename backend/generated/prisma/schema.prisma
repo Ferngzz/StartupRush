@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Startup {
+  id_startup         Int    @id @map("_id")
+  name               String @unique
+  slogan             String
+  founding_year      Int
+  score              Float  @default(70)
+  convincing_pitches Int?   @default(0)
+  bugged_products    Int?   @default(0)
+  attracted_users    Int?   @default(0)
+  pissed_investor    Int?   @default(0)
+  fake_news_pitches  Int?   @default(0)
+
+  battle_as_startup_1 Battle[] @relation("startup1")
+  battle_as_startup_2 Battle[] @relation("startup2")
+}
+
+model Tournament {
+  id_tournament Int  @id @map("_id")
+  edition       Int
+  id_winner     Int?
+}
+
+model Battle {
+  id_battle       Int     @id @map("_id")
+  startup_1       Startup @relation("startup1", fields: [id_startup_1], references: [id_startup])
+  id_startup_1    Int
+  startup_2       Startup @relation("startup2", fields: [id_startup_2], references: [id_startup])
+  id_startup_2    Int
+  startup_1_score Int?    @default(0)
+  startup_2_score Int?    @default(0)
+  winner_id       Int?
+  finished        Boolean @default(false)
+}
+
+model Event {
+  id          Int    @id @map("_id")
+  description String
+  value       Int
+}
