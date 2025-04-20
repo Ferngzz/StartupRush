@@ -1,51 +1,128 @@
-body {
-  background-color: #8ECAE6;
-  font-family: "JetBrains Mono", sans-serif;
+/* General */
+html {
+  font-family: "JetBrains Mono", monospace;
 }
 
+body {
+  background-color: #8ECAE6;
+}
+
+/* Header */
 .header {
-  width: auto;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
   height: 70px;
   background-color: #219EBC;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem 0 1rem;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
-.header p {
-  color: #FFFFFF;
-  font-size: 3rem;
-  font-family: "JetBrains Mono", sans-serif;
+.logo {
+  padding-left: 1rem;
 }
 
 .menuIcon {
   color: #FFFFFF;
   font-size: small;
+  padding-right: 2rem;
+}
+
+.menu {
+  position: fixed;
+  border-radius: 16px;
+  background: #219EBC;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  overflow-y: auto;
+  max-height: 100vh;
+  z-index: 30;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+  transition: transform ease;
+
+  transform: translateY(0);
+  top: 45px;
+  width: 300px;
+  right: 2rem;
+  height: auto;
+}
+
+.menuContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #58B4D1;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.menuContent img{
+  width: 40px;
+}
+
+.menuContent p {
+  font-size: 30px;
+  padding-right: 1rem;]
+  font-weight: bold;
+  color: #FFF;
+}
+
+
+/* Sign Up Page*/
+.signUpPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .mainContainer {
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
   background-color: #FFF;
   border-radius: 24px;
+  width: auto;
+  height: 30rem;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
   padding: 2rem;
-  align-items: center;
-}
-
-.textField {
-  border-color: #FB9017;
+  border: 2px solid #000000;
 }
 
 .mainContainer Button{
   width: auto;
   background-color: #FB8500;
-  border-radius: 24px;
   font-size: 16px;
-
 }
 
 .mainContainer p {
-  font-size: 40px;
+  font-size: 2rem;
+  color: #000;
 }
+
+.textField {
+  min-width: 10rem;
+}
+
+.textField .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #FB8500;
+}
+
+.textField .MuiInputLabel-root.Mui-focused {
+  color: #FB8500;
+}
+
+
+
+
+
+
+
+
