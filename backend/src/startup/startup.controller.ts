@@ -4,8 +4,14 @@ import prisma from '../client'
 export async function addStartup(req: Request, res: Response) {
 
     try {
+        const data = {
+            name: req.body.name,
+            slogan: req.body.slogan,
+            founding_year: req.body.founding_year,
+        }
+
         const startup = await prisma.startup.create({
-            data: req.body,
+            data: data,
         })
 
         res.status(200).json({
@@ -14,12 +20,12 @@ export async function addStartup(req: Request, res: Response) {
         });
 
     } catch (e) {
-        console.log(e)
 
-        res.status(404).json({
-            status: 404,
+        res.status(500).json({
+            status: 500,
             message: 'Something went wrong'
         });
+
     }
 }
 
@@ -34,25 +40,30 @@ export async function getAllStartups(req: Request, res: Response) {
             })
         }
 
-        res.status(200).json({
-            status: 200,
-            data: startups
-        })
+        if (startups) {
+            res.status(200).json({
+                status: 200,
+                data: startups
+            })
+        }
 
     } catch (e) {
         console.log(e)
+        res.status(500).json({
+            status: 500,
+            message: 'Something went wrong'
+        })
     }
 }
 
 export async function updateStartupScore(req: Request, res: Response) {
     const {id} = req.params;
-    const parsedId = parseInt(id);
     const toIncrement = parseFloat(req.body.increment);
 
     try {
         const startup = await prisma.startup.findFirst({
             where: {
-                id_startup: parsedId,
+                id_startup: id,
             }
         })
 
@@ -65,7 +76,7 @@ export async function updateStartupScore(req: Request, res: Response) {
 
         const updatedStartup = await prisma.startup.update({
             where: {
-                id_startup: parsedId,
+                id_startup: id,
             },
             data: {
                 score: {
@@ -91,12 +102,11 @@ export async function updateStartupScore(req: Request, res: Response) {
 
 export async function updateStartupFlags(req: Request, res: Response) {
     const {id} = req.params;
-    const parsedId = parseInt(id);
 
     try {
         const startup = await prisma.startup.findFirst({
             where: {
-                id_startup: parsedId,
+                id_startup: id,
             }
         })
 
@@ -109,7 +119,7 @@ export async function updateStartupFlags(req: Request, res: Response) {
 
         const updatedStartup = await prisma.startup.update({
             where: {
-                id_startup: parsedId,
+                id_startup: id,
             },
             data: {
                 convincing_pitches: {

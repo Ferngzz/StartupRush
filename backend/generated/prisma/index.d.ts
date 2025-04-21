@@ -1148,7 +1148,6 @@ export namespace Prisma {
   }
 
   export type StartupAvgAggregateOutputType = {
-    id_startup: number | null
     founding_year: number | null
     score: number | null
     convincing_pitches: number | null
@@ -1159,7 +1158,6 @@ export namespace Prisma {
   }
 
   export type StartupSumAggregateOutputType = {
-    id_startup: number | null
     founding_year: number | null
     score: number | null
     convincing_pitches: number | null
@@ -1170,7 +1168,7 @@ export namespace Prisma {
   }
 
   export type StartupMinAggregateOutputType = {
-    id_startup: number | null
+    id_startup: string | null
     name: string | null
     slogan: string | null
     founding_year: number | null
@@ -1183,7 +1181,7 @@ export namespace Prisma {
   }
 
   export type StartupMaxAggregateOutputType = {
-    id_startup: number | null
+    id_startup: string | null
     name: string | null
     slogan: string | null
     founding_year: number | null
@@ -1211,7 +1209,6 @@ export namespace Prisma {
 
 
   export type StartupAvgAggregateInputType = {
-    id_startup?: true
     founding_year?: true
     score?: true
     convincing_pitches?: true
@@ -1222,7 +1219,6 @@ export namespace Prisma {
   }
 
   export type StartupSumAggregateInputType = {
-    id_startup?: true
     founding_year?: true
     score?: true
     convincing_pitches?: true
@@ -1359,7 +1355,7 @@ export namespace Prisma {
   }
 
   export type StartupGroupByOutputType = {
-    id_startup: number
+    id_startup: string
     name: string
     slogan: string
     founding_year: number
@@ -1435,7 +1431,7 @@ export namespace Prisma {
       battle_as_startup_2: Prisma.$BattlePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id_startup: number
+      id_startup: string
       name: string
       slogan: string
       founding_year: number
@@ -1839,7 +1835,7 @@ export namespace Prisma {
    * Fields of the Startup model
    */
   interface StartupFieldRefs {
-    readonly id_startup: FieldRef<"Startup", 'Int'>
+    readonly id_startup: FieldRef<"Startup", 'String'>
     readonly name: FieldRef<"Startup", 'String'>
     readonly slogan: FieldRef<"Startup", 'String'>
     readonly founding_year: FieldRef<"Startup", 'Int'>
@@ -2298,25 +2294,23 @@ export namespace Prisma {
   }
 
   export type TournamentAvgAggregateOutputType = {
-    id_tournament: number | null
     edition: number | null
     id_winner: number | null
   }
 
   export type TournamentSumAggregateOutputType = {
-    id_tournament: number | null
     edition: number | null
     id_winner: number | null
   }
 
   export type TournamentMinAggregateOutputType = {
-    id_tournament: number | null
+    id_tournament: string | null
     edition: number | null
     id_winner: number | null
   }
 
   export type TournamentMaxAggregateOutputType = {
-    id_tournament: number | null
+    id_tournament: string | null
     edition: number | null
     id_winner: number | null
   }
@@ -2330,13 +2324,11 @@ export namespace Prisma {
 
 
   export type TournamentAvgAggregateInputType = {
-    id_tournament?: true
     edition?: true
     id_winner?: true
   }
 
   export type TournamentSumAggregateInputType = {
-    id_tournament?: true
     edition?: true
     id_winner?: true
   }
@@ -2447,7 +2439,7 @@ export namespace Prisma {
   }
 
   export type TournamentGroupByOutputType = {
-    id_tournament: number
+    id_tournament: string
     edition: number
     id_winner: number | null
     _count: TournamentCountAggregateOutputType | null
@@ -2491,7 +2483,7 @@ export namespace Prisma {
     name: "Tournament"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id_tournament: number
+      id_tournament: string
       edition: number
       id_winner: number | null
     }, ExtArgs["result"]["tournament"]>
@@ -2886,7 +2878,7 @@ export namespace Prisma {
    * Fields of the Tournament model
    */
   interface TournamentFieldRefs {
-    readonly id_tournament: FieldRef<"Tournament", 'Int'>
+    readonly id_tournament: FieldRef<"Tournament", 'String'>
     readonly edition: FieldRef<"Tournament", 'Int'>
     readonly id_winner: FieldRef<"Tournament", 'Int'>
   }
@@ -3250,27 +3242,21 @@ export namespace Prisma {
   }
 
   export type BattleAvgAggregateOutputType = {
-    id_battle: number | null
-    id_startup_1: number | null
-    id_startup_2: number | null
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
   }
 
   export type BattleSumAggregateOutputType = {
-    id_battle: number | null
-    id_startup_1: number | null
-    id_startup_2: number | null
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
   }
 
   export type BattleMinAggregateOutputType = {
-    id_battle: number | null
-    id_startup_1: number | null
-    id_startup_2: number | null
+    id_battle: string | null
+    id_startup_1: string | null
+    id_startup_2: string | null
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
@@ -3278,9 +3264,9 @@ export namespace Prisma {
   }
 
   export type BattleMaxAggregateOutputType = {
-    id_battle: number | null
-    id_startup_1: number | null
-    id_startup_2: number | null
+    id_battle: string | null
+    id_startup_1: string | null
+    id_startup_2: string | null
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
@@ -3300,18 +3286,12 @@ export namespace Prisma {
 
 
   export type BattleAvgAggregateInputType = {
-    id_battle?: true
-    id_startup_1?: true
-    id_startup_2?: true
     startup_1_score?: true
     startup_2_score?: true
     winner_id?: true
   }
 
   export type BattleSumAggregateInputType = {
-    id_battle?: true
-    id_startup_1?: true
-    id_startup_2?: true
     startup_1_score?: true
     startup_2_score?: true
     winner_id?: true
@@ -3435,9 +3415,9 @@ export namespace Prisma {
   }
 
   export type BattleGroupByOutputType = {
-    id_battle: number
-    id_startup_1: number
-    id_startup_2: number
+    id_battle: string
+    id_startup_1: string
+    id_startup_2: string
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
@@ -3500,9 +3480,9 @@ export namespace Prisma {
       startup_2: Prisma.$StartupPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id_battle: number
-      id_startup_1: number
-      id_startup_2: number
+      id_battle: string
+      id_startup_1: string
+      id_startup_2: string
       startup_1_score: number | null
       startup_2_score: number | null
       winner_id: number | null
@@ -3901,9 +3881,9 @@ export namespace Prisma {
    * Fields of the Battle model
    */
   interface BattleFieldRefs {
-    readonly id_battle: FieldRef<"Battle", 'Int'>
-    readonly id_startup_1: FieldRef<"Battle", 'Int'>
-    readonly id_startup_2: FieldRef<"Battle", 'Int'>
+    readonly id_battle: FieldRef<"Battle", 'String'>
+    readonly id_startup_1: FieldRef<"Battle", 'String'>
+    readonly id_startup_2: FieldRef<"Battle", 'String'>
     readonly startup_1_score: FieldRef<"Battle", 'Int'>
     readonly startup_2_score: FieldRef<"Battle", 'Int'>
     readonly winner_id: FieldRef<"Battle", 'Int'>
@@ -4309,23 +4289,21 @@ export namespace Prisma {
   }
 
   export type EventAvgAggregateOutputType = {
-    id: number | null
     value: number | null
   }
 
   export type EventSumAggregateOutputType = {
-    id: number | null
     value: number | null
   }
 
   export type EventMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     description: string | null
     value: number | null
   }
 
   export type EventMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     description: string | null
     value: number | null
   }
@@ -4339,12 +4317,10 @@ export namespace Prisma {
 
 
   export type EventAvgAggregateInputType = {
-    id?: true
     value?: true
   }
 
   export type EventSumAggregateInputType = {
-    id?: true
     value?: true
   }
 
@@ -4454,7 +4430,7 @@ export namespace Prisma {
   }
 
   export type EventGroupByOutputType = {
-    id: number
+    id: string
     description: string
     value: number
     _count: EventCountAggregateOutputType | null
@@ -4498,7 +4474,7 @@ export namespace Prisma {
     name: "Event"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       description: string
       value: number
     }, ExtArgs["result"]["event"]>
@@ -4893,7 +4869,7 @@ export namespace Prisma {
    * Fields of the Event model
    */
   interface EventFieldRefs {
-    readonly id: FieldRef<"Event", 'Int'>
+    readonly id: FieldRef<"Event", 'String'>
     readonly description: FieldRef<"Event", 'String'>
     readonly value: FieldRef<"Event", 'Int'>
   }
@@ -5317,20 +5293,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -5341,6 +5303,20 @@ export namespace Prisma {
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -5372,7 +5348,7 @@ export namespace Prisma {
     AND?: StartupWhereInput | StartupWhereInput[]
     OR?: StartupWhereInput[]
     NOT?: StartupWhereInput | StartupWhereInput[]
-    id_startup?: IntFilter<"Startup"> | number
+    id_startup?: StringFilter<"Startup"> | string
     name?: StringFilter<"Startup"> | string
     slogan?: StringFilter<"Startup"> | string
     founding_year?: IntFilter<"Startup"> | number
@@ -5402,7 +5378,7 @@ export namespace Prisma {
   }
 
   export type StartupWhereUniqueInput = Prisma.AtLeast<{
-    id_startup?: number
+    id_startup?: string
     name?: string
     AND?: StartupWhereInput | StartupWhereInput[]
     OR?: StartupWhereInput[]
@@ -5441,7 +5417,7 @@ export namespace Prisma {
     AND?: StartupScalarWhereWithAggregatesInput | StartupScalarWhereWithAggregatesInput[]
     OR?: StartupScalarWhereWithAggregatesInput[]
     NOT?: StartupScalarWhereWithAggregatesInput | StartupScalarWhereWithAggregatesInput[]
-    id_startup?: IntWithAggregatesFilter<"Startup"> | number
+    id_startup?: StringWithAggregatesFilter<"Startup"> | string
     name?: StringWithAggregatesFilter<"Startup"> | string
     slogan?: StringWithAggregatesFilter<"Startup"> | string
     founding_year?: IntWithAggregatesFilter<"Startup"> | number
@@ -5457,7 +5433,7 @@ export namespace Prisma {
     AND?: TournamentWhereInput | TournamentWhereInput[]
     OR?: TournamentWhereInput[]
     NOT?: TournamentWhereInput | TournamentWhereInput[]
-    id_tournament?: IntFilter<"Tournament"> | number
+    id_tournament?: StringFilter<"Tournament"> | string
     edition?: IntFilter<"Tournament"> | number
     id_winner?: IntNullableFilter<"Tournament"> | number | null
   }
@@ -5469,7 +5445,7 @@ export namespace Prisma {
   }
 
   export type TournamentWhereUniqueInput = Prisma.AtLeast<{
-    id_tournament?: number
+    id_tournament?: string
     AND?: TournamentWhereInput | TournamentWhereInput[]
     OR?: TournamentWhereInput[]
     NOT?: TournamentWhereInput | TournamentWhereInput[]
@@ -5492,7 +5468,7 @@ export namespace Prisma {
     AND?: TournamentScalarWhereWithAggregatesInput | TournamentScalarWhereWithAggregatesInput[]
     OR?: TournamentScalarWhereWithAggregatesInput[]
     NOT?: TournamentScalarWhereWithAggregatesInput | TournamentScalarWhereWithAggregatesInput[]
-    id_tournament?: IntWithAggregatesFilter<"Tournament"> | number
+    id_tournament?: StringWithAggregatesFilter<"Tournament"> | string
     edition?: IntWithAggregatesFilter<"Tournament"> | number
     id_winner?: IntNullableWithAggregatesFilter<"Tournament"> | number | null
   }
@@ -5501,9 +5477,9 @@ export namespace Prisma {
     AND?: BattleWhereInput | BattleWhereInput[]
     OR?: BattleWhereInput[]
     NOT?: BattleWhereInput | BattleWhereInput[]
-    id_battle?: IntFilter<"Battle"> | number
-    id_startup_1?: IntFilter<"Battle"> | number
-    id_startup_2?: IntFilter<"Battle"> | number
+    id_battle?: StringFilter<"Battle"> | string
+    id_startup_1?: StringFilter<"Battle"> | string
+    id_startup_2?: StringFilter<"Battle"> | string
     startup_1_score?: IntNullableFilter<"Battle"> | number | null
     startup_2_score?: IntNullableFilter<"Battle"> | number | null
     winner_id?: IntNullableFilter<"Battle"> | number | null
@@ -5525,12 +5501,12 @@ export namespace Prisma {
   }
 
   export type BattleWhereUniqueInput = Prisma.AtLeast<{
-    id_battle?: number
+    id_battle?: string
     AND?: BattleWhereInput | BattleWhereInput[]
     OR?: BattleWhereInput[]
     NOT?: BattleWhereInput | BattleWhereInput[]
-    id_startup_1?: IntFilter<"Battle"> | number
-    id_startup_2?: IntFilter<"Battle"> | number
+    id_startup_1?: StringFilter<"Battle"> | string
+    id_startup_2?: StringFilter<"Battle"> | string
     startup_1_score?: IntNullableFilter<"Battle"> | number | null
     startup_2_score?: IntNullableFilter<"Battle"> | number | null
     winner_id?: IntNullableFilter<"Battle"> | number | null
@@ -5558,9 +5534,9 @@ export namespace Prisma {
     AND?: BattleScalarWhereWithAggregatesInput | BattleScalarWhereWithAggregatesInput[]
     OR?: BattleScalarWhereWithAggregatesInput[]
     NOT?: BattleScalarWhereWithAggregatesInput | BattleScalarWhereWithAggregatesInput[]
-    id_battle?: IntWithAggregatesFilter<"Battle"> | number
-    id_startup_1?: IntWithAggregatesFilter<"Battle"> | number
-    id_startup_2?: IntWithAggregatesFilter<"Battle"> | number
+    id_battle?: StringWithAggregatesFilter<"Battle"> | string
+    id_startup_1?: StringWithAggregatesFilter<"Battle"> | string
+    id_startup_2?: StringWithAggregatesFilter<"Battle"> | string
     startup_1_score?: IntNullableWithAggregatesFilter<"Battle"> | number | null
     startup_2_score?: IntNullableWithAggregatesFilter<"Battle"> | number | null
     winner_id?: IntNullableWithAggregatesFilter<"Battle"> | number | null
@@ -5571,7 +5547,7 @@ export namespace Prisma {
     AND?: EventWhereInput | EventWhereInput[]
     OR?: EventWhereInput[]
     NOT?: EventWhereInput | EventWhereInput[]
-    id?: IntFilter<"Event"> | number
+    id?: StringFilter<"Event"> | string
     description?: StringFilter<"Event"> | string
     value?: IntFilter<"Event"> | number
   }
@@ -5583,7 +5559,7 @@ export namespace Prisma {
   }
 
   export type EventWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: EventWhereInput | EventWhereInput[]
     OR?: EventWhereInput[]
     NOT?: EventWhereInput | EventWhereInput[]
@@ -5606,13 +5582,13 @@ export namespace Prisma {
     AND?: EventScalarWhereWithAggregatesInput | EventScalarWhereWithAggregatesInput[]
     OR?: EventScalarWhereWithAggregatesInput[]
     NOT?: EventScalarWhereWithAggregatesInput | EventScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Event"> | number
+    id?: StringWithAggregatesFilter<"Event"> | string
     description?: StringWithAggregatesFilter<"Event"> | string
     value?: IntWithAggregatesFilter<"Event"> | number
   }
 
   export type StartupCreateInput = {
-    id_startup: number
+    id_startup?: string
     name: string
     slogan: string
     founding_year: number
@@ -5627,7 +5603,7 @@ export namespace Prisma {
   }
 
   export type StartupUncheckedCreateInput = {
-    id_startup: number
+    id_startup?: string
     name: string
     slogan: string
     founding_year: number
@@ -5670,7 +5646,7 @@ export namespace Prisma {
   }
 
   export type StartupCreateManyInput = {
-    id_startup: number
+    id_startup?: string
     name: string
     slogan: string
     founding_year: number
@@ -5707,13 +5683,13 @@ export namespace Prisma {
   }
 
   export type TournamentCreateInput = {
-    id_tournament: number
+    id_tournament?: string
     edition: number
     id_winner?: number | null
   }
 
   export type TournamentUncheckedCreateInput = {
-    id_tournament: number
+    id_tournament?: string
     edition: number
     id_winner?: number | null
   }
@@ -5729,7 +5705,7 @@ export namespace Prisma {
   }
 
   export type TournamentCreateManyInput = {
-    id_tournament: number
+    id_tournament?: string
     edition: number
     id_winner?: number | null
   }
@@ -5745,7 +5721,7 @@ export namespace Prisma {
   }
 
   export type BattleCreateInput = {
-    id_battle: number
+    id_battle?: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -5755,9 +5731,9 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedCreateInput = {
-    id_battle: number
-    id_startup_1: number
-    id_startup_2: number
+    id_battle?: string
+    id_startup_1: string
+    id_startup_2: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -5774,8 +5750,8 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedUpdateInput = {
-    id_startup_1?: IntFieldUpdateOperationsInput | number
-    id_startup_2?: IntFieldUpdateOperationsInput | number
+    id_startup_1?: StringFieldUpdateOperationsInput | string
+    id_startup_2?: StringFieldUpdateOperationsInput | string
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -5783,9 +5759,9 @@ export namespace Prisma {
   }
 
   export type BattleCreateManyInput = {
-    id_battle: number
-    id_startup_1: number
-    id_startup_2: number
+    id_battle?: string
+    id_startup_1: string
+    id_startup_2: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -5800,8 +5776,8 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedUpdateManyInput = {
-    id_startup_1?: IntFieldUpdateOperationsInput | number
-    id_startup_2?: IntFieldUpdateOperationsInput | number
+    id_startup_1?: StringFieldUpdateOperationsInput | string
+    id_startup_2?: StringFieldUpdateOperationsInput | string
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -5809,13 +5785,13 @@ export namespace Prisma {
   }
 
   export type EventCreateInput = {
-    id: number
+    id?: string
     description: string
     value: number
   }
 
   export type EventUncheckedCreateInput = {
-    id: number
+    id?: string
     description: string
     value: number
   }
@@ -5831,7 +5807,7 @@ export namespace Prisma {
   }
 
   export type EventCreateManyInput = {
-    id: number
+    id?: string
     description: string
     value: number
   }
@@ -5844,17 +5820,6 @@ export namespace Prisma {
   export type EventUncheckedUpdateManyInput = {
     description?: StringFieldUpdateOperationsInput | string
     value?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5870,6 +5835,17 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -5919,7 +5895,6 @@ export namespace Prisma {
   }
 
   export type StartupAvgOrderByAggregateInput = {
-    id_startup?: SortOrder
     founding_year?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
@@ -5956,7 +5931,6 @@ export namespace Prisma {
   }
 
   export type StartupSumOrderByAggregateInput = {
-    id_startup?: SortOrder
     founding_year?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
@@ -5964,22 +5938,6 @@ export namespace Prisma {
     attracted_users?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5998,6 +5956,22 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -6040,7 +6014,6 @@ export namespace Prisma {
   }
 
   export type TournamentAvgOrderByAggregateInput = {
-    id_tournament?: SortOrder
     edition?: SortOrder
     id_winner?: SortOrder
   }
@@ -6058,7 +6031,6 @@ export namespace Prisma {
   }
 
   export type TournamentSumOrderByAggregateInput = {
-    id_tournament?: SortOrder
     edition?: SortOrder
     id_winner?: SortOrder
   }
@@ -6084,9 +6056,6 @@ export namespace Prisma {
   }
 
   export type BattleAvgOrderByAggregateInput = {
-    id_battle?: SortOrder
-    id_startup_1?: SortOrder
-    id_startup_2?: SortOrder
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
@@ -6113,9 +6082,6 @@ export namespace Prisma {
   }
 
   export type BattleSumOrderByAggregateInput = {
-    id_battle?: SortOrder
-    id_startup_1?: SortOrder
-    id_startup_2?: SortOrder
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
@@ -6136,7 +6102,6 @@ export namespace Prisma {
   }
 
   export type EventAvgOrderByAggregateInput = {
-    id?: SortOrder
     value?: SortOrder
   }
 
@@ -6153,7 +6118,6 @@ export namespace Prisma {
   }
 
   export type EventSumOrderByAggregateInput = {
-    id?: SortOrder
     value?: SortOrder
   }
 
@@ -6302,17 +6266,6 @@ export namespace Prisma {
     update?: XOR<XOR<StartupUpdateToOneWithWhereWithoutBattle_as_startup_2Input, StartupUpdateWithoutBattle_as_startup_2Input>, StartupUncheckedUpdateWithoutBattle_as_startup_2Input>
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6325,6 +6278,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -6350,22 +6314,6 @@ export namespace Prisma {
     isSet?: boolean
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6381,6 +6329,22 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -6442,7 +6406,7 @@ export namespace Prisma {
   }
 
   export type BattleCreateWithoutStartup_1Input = {
-    id_battle: number
+    id_battle?: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -6451,8 +6415,8 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedCreateWithoutStartup_1Input = {
-    id_battle: number
-    id_startup_2: number
+    id_battle?: string
+    id_startup_2: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -6469,7 +6433,7 @@ export namespace Prisma {
   }
 
   export type BattleCreateWithoutStartup_2Input = {
-    id_battle: number
+    id_battle?: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -6478,8 +6442,8 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedCreateWithoutStartup_2Input = {
-    id_battle: number
-    id_startup_1: number
+    id_battle?: string
+    id_startup_1: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -6515,9 +6479,9 @@ export namespace Prisma {
     AND?: BattleScalarWhereInput | BattleScalarWhereInput[]
     OR?: BattleScalarWhereInput[]
     NOT?: BattleScalarWhereInput | BattleScalarWhereInput[]
-    id_battle?: IntFilter<"Battle"> | number
-    id_startup_1?: IntFilter<"Battle"> | number
-    id_startup_2?: IntFilter<"Battle"> | number
+    id_battle?: StringFilter<"Battle"> | string
+    id_startup_1?: StringFilter<"Battle"> | string
+    id_startup_2?: StringFilter<"Battle"> | string
     startup_1_score?: IntNullableFilter<"Battle"> | number | null
     startup_2_score?: IntNullableFilter<"Battle"> | number | null
     winner_id?: IntNullableFilter<"Battle"> | number | null
@@ -6541,7 +6505,7 @@ export namespace Prisma {
   }
 
   export type StartupCreateWithoutBattle_as_startup_1Input = {
-    id_startup: number
+    id_startup?: string
     name: string
     slogan: string
     founding_year: number
@@ -6555,7 +6519,7 @@ export namespace Prisma {
   }
 
   export type StartupUncheckedCreateWithoutBattle_as_startup_1Input = {
-    id_startup: number
+    id_startup?: string
     name: string
     slogan: string
     founding_year: number
@@ -6574,7 +6538,7 @@ export namespace Prisma {
   }
 
   export type StartupCreateWithoutBattle_as_startup_2Input = {
-    id_startup: number
+    id_startup?: string
     name: string
     slogan: string
     founding_year: number
@@ -6588,7 +6552,7 @@ export namespace Prisma {
   }
 
   export type StartupUncheckedCreateWithoutBattle_as_startup_2Input = {
-    id_startup: number
+    id_startup?: string
     name: string
     slogan: string
     founding_year: number
@@ -6681,8 +6645,8 @@ export namespace Prisma {
   }
 
   export type BattleCreateManyStartup_1Input = {
-    id_battle: number
-    id_startup_2: number
+    id_battle?: string
+    id_startup_2: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -6690,8 +6654,8 @@ export namespace Prisma {
   }
 
   export type BattleCreateManyStartup_2Input = {
-    id_battle: number
-    id_startup_1: number
+    id_battle?: string
+    id_startup_1: string
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
@@ -6707,7 +6671,7 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedUpdateWithoutStartup_1Input = {
-    id_startup_2?: IntFieldUpdateOperationsInput | number
+    id_startup_2?: StringFieldUpdateOperationsInput | string
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -6715,7 +6679,7 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedUpdateManyWithoutStartup_1Input = {
-    id_startup_2?: IntFieldUpdateOperationsInput | number
+    id_startup_2?: StringFieldUpdateOperationsInput | string
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -6731,7 +6695,7 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedUpdateWithoutStartup_2Input = {
-    id_startup_1?: IntFieldUpdateOperationsInput | number
+    id_startup_1?: StringFieldUpdateOperationsInput | string
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -6739,7 +6703,7 @@ export namespace Prisma {
   }
 
   export type BattleUncheckedUpdateManyWithoutStartup_2Input = {
-    id_startup_1?: IntFieldUpdateOperationsInput | number
+    id_startup_1?: StringFieldUpdateOperationsInput | string
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
