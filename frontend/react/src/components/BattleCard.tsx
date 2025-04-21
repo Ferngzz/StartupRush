@@ -6,9 +6,7 @@ interface BattleCardProps {
     teams: Team[]
 }
 
-export function BattleCard(
-    {teams}: BattleCardProps
-) {
+export function BattleCard({teams}: BattleCardProps) {
 
     return (
         <div className="battleCard">

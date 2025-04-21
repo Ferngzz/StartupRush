@@ -117,25 +117,28 @@ export async function updateStartupFlags(req: Request, res: Response) {
             })
         }
 
+        console.log()
+
+
         const updatedStartup = await prisma.startup.update({
             where: {
                 id_startup: id,
             },
             data: {
                 convincing_pitches: {
-                    increment: req.body.convincing_pitches,
+                    increment: req.body.convincing_pitches ? 1 : 0,
                 },
                 bugged_products: {
-                    increment: req.body.bugged_products,
+                    increment: req.body.bugged_products ? 1 : 0,
                 },
                 attracted_users: {
-                    increment: req.body.attracted_users,
+                    increment: req.body.attracted_users ? 1 : 0,
                 },
                 pissed_investor: {
-                    increment: req.body.pissed_investor,
+                    increment: req.body.pissed_investor ? 1 : 0,
                 },
                 fake_news_pitches: {
-                    increment: req.body.fake_news_pitches,
+                    increment: req.body.fake_news_pitches ? 1 : 0,
                 }
             }
         })

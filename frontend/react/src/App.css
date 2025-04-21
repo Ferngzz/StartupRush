@@ -1,180 +1,262 @@
 /* General */
-html {
-  font-family: "JetBrains Mono", monospace;
-}
-
 body {
-  background-color: #8ECAE6;
+    background-color: #8ECAE6;
+
 }
 
 /* Header */
 .header {
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  top: 0;
-  margin-bottom: 10%;
-  width: 100%;
-  height: 70px;
-  background-color: #219EBC;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    margin-bottom: 10%;
+    width: 100%;
+    height: 70px;
+    background-color: #219EBC;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  padding-left: 1rem;
-  width: 15rem;
+    width: 15rem;
 }
 
 .menuIcon {
-  color: #FFFFFF;
-  font-size: small;
-  padding-right: 2rem;
+    color: #FFFFFF;
+    font-size: small;
+    padding-right: 2rem;
 }
 
 .menu {
-  position: fixed;
-  border-radius: 16px;
-  background: #219EBC;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
-  overflow-y: auto;
-  max-height: 100vh;
-  z-index: 30;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
-  transition: transform ease;
+    position: fixed;
+    border-radius: 16px;
+    background: #219EBC;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    overflow-y: auto;
+    max-height: 100vh;
+    z-index: 30;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+    transition: transform ease;
 
-  transform: translateY(0);
-  top: 45px;
-  width: 300px;
-  right: 2rem;
-  height: auto;
+    transform: translateY(0);
+    top: 45px;
+    width: 300px;
+    right: 2rem;
+    height: auto;
 }
 
 .menuContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #58B4D1;
-  border-radius: 16px;
-  padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #58B4D1;
+    border-radius: 16px;
+    padding: 1rem;
 }
 
-.menuContent img{
-  width: 40px;
+.menuContent img {
+    width: 40px;
 }
 
 .menuContent p {
-  font-size: 30px;
-  padding-right: 1rem;]
-  font-weight: bold;
-  color: #FFF;
+    font-size: 30px;
+    padding-right: 1rem;
+] font-weight: bold;
+    color: #FFF;
 }
 
 
 /* Sign Up Page*/
 .signUpPage {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .mainContainer {
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  background-color: #FFF;
-  border-radius: 24px;
-  width: auto;
-  height: 30rem;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  border: 2px solid #000000;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #FFF;
+    border-radius: 24px;
+    width: auto;
+    height: 30rem;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border: 2px solid #000000;
 }
 
-.mainContainer Button{
-  width: auto;
-  background-color: #FB8500;
-  font-size: 16px;
+.mainContainer Button {
+    width: auto;
+    background-color: #FB8500;
+    font-size: 16px;
 }
 
 .mainContainer p {
-  font-size: 2rem;
-  color: #000;
+    font-size: 2rem;
+    color: #000;
 }
 
 .textField {
-  min-width: 10rem;
+    min-width: 10rem;
 }
 
 .textField .MuiOutlinedInput-root.Mui-focused fieldset {
-  border-color: #FB8500;
+    border-color: #FB8500;
 }
 
 .textField .MuiInputLabel-root.Mui-focused {
-  color: #FB8500;
+    color: #FB8500;
 }
 
 /* Battle Card */
 .battleCard {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  padding: 8px;
-  background-color: #219EBC;
-  border-radius: 24px;
-  border: 2px solid #000000;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 8px;
+    background-color: #219EBC;
+    border-radius: 24px;
+    border: 2px solid #000000;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
 .battleCard p {
-  padding: 5px;
+    padding: 5px;
 }
 
 .teamLogo {
-  width: 2rem;
-  border: 3px solid;
-  padding: 0.5rem;
-  border-radius: 90px;
-  background-color: #fff;
+    width: 2rem;
+    border: 3px solid;
+    padding: 0.5rem;
+    border-radius: 90px;
+    background-color: #fff;
 }
 
 .vsLogo {
-  width: 4rem;
+    width: 4rem;
+}
+
+.battleCard:hover {
+    transform: scale(1.05);
 }
 
 /* BattlePage */
 .battlePage {
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .battlePageMainContainer {
-  width: auto;
-  padding: 1rem;
-  margin-top: 70px;
-  align-items: center;
-  text-align: center;
-  background-color: #FFF;
-  border-radius: 24px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
-  border: 2px solid #000000;
+    width: auto;
+    padding: 1rem;
+    margin-top: 70px;
+    align-items: center;
+    text-align: center;
+    background-color: #FFF;
+    border-radius: 24px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+    border: 2px solid #000000;
 }
+
 .battlePage Button {
-  background-color: #FB8500;
+    background-color: #FB8500;
 }
 
 .battlePageTitle {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
+.battlePageModal {
+    align-self: center;
+    justify-self: center;
+}
+
+/*Battle Modal*/
+.modalContainer {
+    background-color: #023047;
+    border-radius: 24px;
+    padding: 2rem;
+    width: fit-content;
+    height: auto;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.modalTeam {
+    justify-content: center;
+    align-items: center;
+    background-color: #219EBC;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+
+}
+
+.modalTeam img {
+    background-color: #FFF;
+    border-radius: 90px;
+    border: 5px solid #000;
+    width: 5rem;
+    padding: 1rem;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.modalTeam p {
+    color: #FFF;
+    font-size: 1.2rem;
+}
+
+.modalVs {
+    width: 10rem;
+    padding: 2rem;
+
+    animation: pulse 1s linear infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.modalCheckbox .MuiFormControlLabel-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem
+}
+
+.modalContainer Button {
+    justify-self: center;
+    align-self: center;
+    background-color: #FB8500;
+    color: white;
+    width: 10rem;
+}
+
+.modalWinner {
+    width: 10rem;
+    animation: pulse 1s linear infinite alternate;
+}
+
+.modalTeamContainer {
+    justify-content: center;
+    align-items: center;
+}
+
+.spacer {
+    height: 63px;
+}
 
 
 
