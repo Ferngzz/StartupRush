@@ -6,7 +6,11 @@ import {useRef} from "react";
 import {Startup} from "../interfaces/Startup.ts"
 import {useNavigate} from "react-router-dom";
 
-export function SignUpPage() {
+interface TournamentProps {
+    edition: number
+}
+
+export function SignUpPage({edition}: TournamentProps) {
     const nameRef = useRef<HTMLInputElement>(null);
     const sloganRef = useRef<HTMLInputElement>(null);
     const foundingYearRef = useRef<HTMLInputElement>(null);
@@ -54,6 +58,7 @@ export function SignUpPage() {
                 name: nameRef.current?.value ?? "",
                 slogan: sloganRef.current?.value ?? "",
                 founding_year: foundingYear,
+                tournament_edition: edition,
             }
 
             // Converte em JSON para enviar pro backend

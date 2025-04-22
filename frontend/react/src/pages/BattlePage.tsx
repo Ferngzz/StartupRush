@@ -6,6 +6,8 @@ import {Header} from "../components/Header.tsx";
 import {useState, useEffect, useRef} from "react";
 import {Modal} from "@mui/material";
 import {BattleModal} from "../components/BattleModal.tsx";
+import {useNavigate} from "react-router-dom";
+
 
 export function BattlePage() {
     const [duels, setDuels] = useState<Duel[]>([]);
@@ -15,6 +17,8 @@ export function BattlePage() {
     const [round, setRound] = useState(1);
     const [finishRound, setFinishRound] = useState(false);
     const newTeamsRef = useRef<Team[]>([]);
+    const [champion, setChampion] = useState<Team>();
+    const navigate = useNavigate();
 
     // Função para setar a fase de batalha
     async function setDuelPhase() {
@@ -23,6 +27,10 @@ export function BattlePage() {
 
         let teams: Team[];
 
+
+        // Na primeira rodada pega todos os times do banco
+        // Nas rodadas seguintes adapta conforme vão sendo
+        // avaliados os duelos
         if (round === 1) {
             teams = Object.values(data.data);
         } else {
@@ -34,6 +42,8 @@ export function BattlePage() {
 
         // Randomiza os duelos
         while (teams.length > 1) {
+            // Se existem times no array e a quantidade é par faz a criação "aleatória"
+            // dos duelos
             if (teams.length % 2 === 0) {
                 const index1 = Math.floor(Math.random() * teams.length);
                 const team1 = teams.splice(index1, 1)[0];
@@ -43,6 +53,11 @@ export function BattlePage() {
 
                 duelsTemp.push({team1, team2});
             } else {
+
+                // Para o caso em que 6 time entram no campeonato
+                // Na segunda rodada sobrariam apenas 3, então
+                // seleciona os dois com maior pontuação
+
                 let temporaryTeams: Team[] = teams
                 temporaryTeams.sort((a, b) => b.score - a.score);
 
@@ -80,13 +95,39 @@ export function BattlePage() {
             newDuels.splice(activeIndex, 1);
         }
 
-        setDuels(newDuels);
+        let teamQuantity = newTeamsRef
+        console.log("Team quantity: " + teamQuantity.current.length);
+
+        // Se teamQuantity for 1 e não tiver nenhum duelo restante
+        // significa que o vencedor é o último time
+        if (teamQuantity.current.length === 1 && newDuels.length == 0) {
+
+
+
+
+
+
+            setChampion(teamQuantity.current[0]);
+            navigate("/ChampionPage")
+        } else {
+            setDuels(newDuels);
+            console.log("duels: " + newDuels.length);
+        }
+
+        console.log("Duelos restantes: " + newDuels.length);
+
+
 
         // Verifica se todos duelos já foram analisados
-        if (newDuels.length === 0) {
+        if (newDuels.length == 0) {
+            console.log("entrei round")
+
             setRound(prevState => prevState + 1);
             setFinishRound(true);
         }
+
+
+
     }
 
     return (

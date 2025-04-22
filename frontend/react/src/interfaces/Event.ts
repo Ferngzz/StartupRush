@@ -1,7 +1,7 @@
 export interface Event {
     pitch: false,
     bug: false,
-    attractive: false,
+    traction: false,
     investor: false,
     fakeNews: false
 }

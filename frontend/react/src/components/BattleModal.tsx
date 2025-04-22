@@ -33,7 +33,7 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
     const [t1Events, setT1Events] = useState<Event>({
         pitch: false,
         bug: false,
-        attractive: false,
+        traction: false,
         investor: false,
         fakeNews: false
     })
@@ -41,7 +41,7 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
     const [t2Events, setT2Events] = useState<Event>({
         pitch: false,
         bug: false,
-        attractive: false,
+        traction: false,
         investor: false,
         fakeNews: false
     })
@@ -62,7 +62,7 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
                 setT1Score(prevState => (
                     checked ? prevState - 4 : prevState + 4
                 ))
-            } else if (name === "attractive") {
+            } else if (name === "traction") {
                 setT1Score(prevState => (
                     checked ? prevState + 3 : prevState - 3
                 ))
@@ -94,7 +94,7 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
                 setT2Score(prevState => (
                     checked ? prevState - 4 : prevState + 4
                 ))
-            } else if (name === "attractive") {
+            } else if (name === "traction") {
                 setT2Score(prevState => (
                     checked ? prevState + 3 : prevState - 3
                 ))
@@ -114,29 +114,68 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
         if (t1Score > t2Score) {
             sett1Win(true);
             setExistsWinner(true);
+            updateStartup(team1, t1Events, t1Score + 32)
             winner(team1);
         } else if (t2Score > t1Score) {
             sett2Win(true);
             setExistsWinner(true);
+            updateStartup(team2, t2Events ,t2Score + 32)
             winner(team2);
         } else {
             const random = Math.floor(Math.random() * 2);
-            console.log(random)
-            if (random == 1) {
+            if (random === 1) {
                 sett1Win(true)
                 setExistsWinner(true)
-                setT1Score(prevState =>
-                    (prevState + 2));
+                updateStartup(team1, t1Events, t1Score + 32)
+                //console.log("sharkFight 1 " + t1Score)
                 winner(team1);
             } else {
                 sett2Win(true);
                 setExistsWinner(true);
-                setT2Score(prevState =>
-                    (prevState + 2));
+                updateStartup(team2, t2Events ,t2Score + 32)
+                //console.log("sharkFight 2 " + t2Score)
                 winner(team2);
             }
         }
         setIsClicked(true);
+    }
+
+    const updateStartup = async (team: Team, flags: Event, score: number) => {
+        try {
+
+            const startup: Team = {
+                name: team.name,
+                slogan: team.slogan,
+                id_startup: team.id_startup,
+                score: score,
+                convincing_pitches: flags.pitch,
+                bugged_products: flags.bug,
+                user_traction: flags.traction,
+                pissed_investor: flags.investor,
+                fake_news_pitches: flags.fakeNews,
+            }
+
+            const toSend = JSON.stringify(startup)
+
+            //console.log(toSend)
+
+            const res = await fetch(`/startup/update/${team.id_startup}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: toSend
+            })
+
+            if (res.ok){
+                console.log("Successfully updated")
+            }
+
+        } catch (e: any) {
+            if (e.response?.status === 500) {
+                console.log("Error updating startup")
+            }
+        }
     }
 
 
@@ -211,9 +250,9 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
                                 label="Boa tração de usuários (+3)"
                                 control={
                                     <Checkbox
-                                        name={"attractive"}
+                                        name={"traction"}
                                         onChange={t1EventHandler}
-                                        checked={t1Events.attractive}
+                                        checked={t1Events.traction}
                                         icon={<RadioButtonUncheckedRounded/>}
                                         checkedIcon={<RadioButtonCheckedRounded/>}
                                         sx={{
@@ -343,9 +382,9 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
                                 label="Boa tração de usuários (+3)"
                                 control={
                                     <Checkbox
-                                        name={"attractive"}
+                                        name={"traction"}
                                         onChange={t2EventHandler}
-                                        checked={t2Events.attractive}
+                                        checked={t2Events.traction}
                                         icon={<RadioButtonUncheckedRounded/>}
                                         checkedIcon={<RadioButtonCheckedRounded/>}
                                         sx={{
