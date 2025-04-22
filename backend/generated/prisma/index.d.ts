@@ -28,11 +28,6 @@ export type Tournament = $Result.DefaultSelection<Prisma.$TournamentPayload>
  * 
  */
 export type Battle = $Result.DefaultSelection<Prisma.$BattlePayload>
-/**
- * Model Event
- * 
- */
-export type Event = $Result.DefaultSelection<Prisma.$EventPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -155,16 +150,6 @@ export class PrismaClient<
     * ```
     */
   get battle(): Prisma.BattleDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.event`: Exposes CRUD operations for the **Event** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Events
-    * const events = await prisma.event.findMany()
-    * ```
-    */
-  get event(): Prisma.EventDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -607,8 +592,7 @@ export namespace Prisma {
   export const ModelName: {
     Startup: 'Startup',
     Tournament: 'Tournament',
-    Battle: 'Battle',
-    Event: 'Event'
+    Battle: 'Battle'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -627,7 +611,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "startup" | "tournament" | "battle" | "event"
+      modelProps: "startup" | "tournament" | "battle"
       txIsolationLevel: never
     }
     model: {
@@ -853,80 +837,6 @@ export namespace Prisma {
           }
         }
       }
-      Event: {
-        payload: Prisma.$EventPayload<ExtArgs>
-        fields: Prisma.EventFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.EventFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.EventFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload>
-          }
-          findFirst: {
-            args: Prisma.EventFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.EventFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload>
-          }
-          findMany: {
-            args: Prisma.EventFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload>[]
-          }
-          create: {
-            args: Prisma.EventCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload>
-          }
-          createMany: {
-            args: Prisma.EventCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.EventDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload>
-          }
-          update: {
-            args: Prisma.EventUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload>
-          }
-          deleteMany: {
-            args: Prisma.EventDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.EventUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.EventUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EventPayload>
-          }
-          aggregate: {
-            args: Prisma.EventAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateEvent>
-          }
-          groupBy: {
-            args: Prisma.EventGroupByArgs<ExtArgs>
-            result: $Utils.Optional<EventGroupByOutputType>[]
-          }
-          findRaw: {
-            args: Prisma.EventFindRawArgs<ExtArgs>
-            result: JsonObject
-          }
-          aggregateRaw: {
-            args: Prisma.EventAggregateRawArgs<ExtArgs>
-            result: JsonObject
-          }
-          count: {
-            args: Prisma.EventCountArgs<ExtArgs>
-            result: $Utils.Optional<EventCountAggregateOutputType> | number
-          }
-        }
-      }
     }
   } & {
     other: {
@@ -1001,7 +911,6 @@ export namespace Prisma {
     startup?: StartupOmit
     tournament?: TournamentOmit
     battle?: BattleOmit
-    event?: EventOmit
   }
 
   /* Types for Logging */
@@ -1149,20 +1058,22 @@ export namespace Prisma {
 
   export type StartupAvgAggregateOutputType = {
     founding_year: number | null
+    tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
     bugged_products: number | null
-    attracted_users: number | null
+    user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
   }
 
   export type StartupSumAggregateOutputType = {
     founding_year: number | null
+    tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
     bugged_products: number | null
-    attracted_users: number | null
+    user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
   }
@@ -1172,10 +1083,11 @@ export namespace Prisma {
     name: string | null
     slogan: string | null
     founding_year: number | null
+    tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
     bugged_products: number | null
-    attracted_users: number | null
+    user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
   }
@@ -1185,10 +1097,11 @@ export namespace Prisma {
     name: string | null
     slogan: string | null
     founding_year: number | null
+    tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
     bugged_products: number | null
-    attracted_users: number | null
+    user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
   }
@@ -1198,10 +1111,11 @@ export namespace Prisma {
     name: number
     slogan: number
     founding_year: number
+    tournament_edition: number
     score: number
     convincing_pitches: number
     bugged_products: number
-    attracted_users: number
+    user_traction: number
     pissed_investor: number
     fake_news_pitches: number
     _all: number
@@ -1210,20 +1124,22 @@ export namespace Prisma {
 
   export type StartupAvgAggregateInputType = {
     founding_year?: true
+    tournament_edition?: true
     score?: true
     convincing_pitches?: true
     bugged_products?: true
-    attracted_users?: true
+    user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
   }
 
   export type StartupSumAggregateInputType = {
     founding_year?: true
+    tournament_edition?: true
     score?: true
     convincing_pitches?: true
     bugged_products?: true
-    attracted_users?: true
+    user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
   }
@@ -1233,10 +1149,11 @@ export namespace Prisma {
     name?: true
     slogan?: true
     founding_year?: true
+    tournament_edition?: true
     score?: true
     convincing_pitches?: true
     bugged_products?: true
-    attracted_users?: true
+    user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
   }
@@ -1246,10 +1163,11 @@ export namespace Prisma {
     name?: true
     slogan?: true
     founding_year?: true
+    tournament_edition?: true
     score?: true
     convincing_pitches?: true
     bugged_products?: true
-    attracted_users?: true
+    user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
   }
@@ -1259,10 +1177,11 @@ export namespace Prisma {
     name?: true
     slogan?: true
     founding_year?: true
+    tournament_edition?: true
     score?: true
     convincing_pitches?: true
     bugged_products?: true
-    attracted_users?: true
+    user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
     _all?: true
@@ -1359,10 +1278,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score: number
+    tournament_edition: number
+    score: number | null
     convincing_pitches: number | null
     bugged_products: number | null
-    attracted_users: number | null
+    user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
     _count: StartupCountAggregateOutputType | null
@@ -1391,10 +1311,11 @@ export namespace Prisma {
     name?: boolean
     slogan?: boolean
     founding_year?: boolean
+    tournament_edition?: boolean
     score?: boolean
     convincing_pitches?: boolean
     bugged_products?: boolean
-    attracted_users?: boolean
+    user_traction?: boolean
     pissed_investor?: boolean
     fake_news_pitches?: boolean
     battle_as_startup_1?: boolean | Startup$battle_as_startup_1Args<ExtArgs>
@@ -1409,15 +1330,16 @@ export namespace Prisma {
     name?: boolean
     slogan?: boolean
     founding_year?: boolean
+    tournament_edition?: boolean
     score?: boolean
     convincing_pitches?: boolean
     bugged_products?: boolean
-    attracted_users?: boolean
+    user_traction?: boolean
     pissed_investor?: boolean
     fake_news_pitches?: boolean
   }
 
-  export type StartupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_startup" | "name" | "slogan" | "founding_year" | "score" | "convincing_pitches" | "bugged_products" | "attracted_users" | "pissed_investor" | "fake_news_pitches", ExtArgs["result"]["startup"]>
+  export type StartupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_startup" | "name" | "slogan" | "founding_year" | "tournament_edition" | "score" | "convincing_pitches" | "bugged_products" | "user_traction" | "pissed_investor" | "fake_news_pitches", ExtArgs["result"]["startup"]>
   export type StartupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     battle_as_startup_1?: boolean | Startup$battle_as_startup_1Args<ExtArgs>
     battle_as_startup_2?: boolean | Startup$battle_as_startup_2Args<ExtArgs>
@@ -1435,10 +1357,11 @@ export namespace Prisma {
       name: string
       slogan: string
       founding_year: number
-      score: number
+      tournament_edition: number
+      score: number | null
       convincing_pitches: number | null
       bugged_products: number | null
-      attracted_users: number | null
+      user_traction: number | null
       pissed_investor: number | null
       fake_news_pitches: number | null
     }, ExtArgs["result"]["startup"]>
@@ -1839,10 +1762,11 @@ export namespace Prisma {
     readonly name: FieldRef<"Startup", 'String'>
     readonly slogan: FieldRef<"Startup", 'String'>
     readonly founding_year: FieldRef<"Startup", 'Int'>
+    readonly tournament_edition: FieldRef<"Startup", 'Int'>
     readonly score: FieldRef<"Startup", 'Float'>
     readonly convincing_pitches: FieldRef<"Startup", 'Int'>
     readonly bugged_products: FieldRef<"Startup", 'Int'>
-    readonly attracted_users: FieldRef<"Startup", 'Int'>
+    readonly user_traction: FieldRef<"Startup", 'Int'>
     readonly pissed_investor: FieldRef<"Startup", 'Int'>
     readonly fake_news_pitches: FieldRef<"Startup", 'Int'>
   }
@@ -3245,12 +3169,14 @@ export namespace Prisma {
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
+    tournament_edition: number | null
   }
 
   export type BattleSumAggregateOutputType = {
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
+    tournament_edition: number | null
   }
 
   export type BattleMinAggregateOutputType = {
@@ -3260,6 +3186,7 @@ export namespace Prisma {
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
+    tournament_edition: number | null
     finished: boolean | null
   }
 
@@ -3270,6 +3197,7 @@ export namespace Prisma {
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
+    tournament_edition: number | null
     finished: boolean | null
   }
 
@@ -3280,6 +3208,7 @@ export namespace Prisma {
     startup_1_score: number
     startup_2_score: number
     winner_id: number
+    tournament_edition: number
     finished: number
     _all: number
   }
@@ -3289,12 +3218,14 @@ export namespace Prisma {
     startup_1_score?: true
     startup_2_score?: true
     winner_id?: true
+    tournament_edition?: true
   }
 
   export type BattleSumAggregateInputType = {
     startup_1_score?: true
     startup_2_score?: true
     winner_id?: true
+    tournament_edition?: true
   }
 
   export type BattleMinAggregateInputType = {
@@ -3304,6 +3235,7 @@ export namespace Prisma {
     startup_1_score?: true
     startup_2_score?: true
     winner_id?: true
+    tournament_edition?: true
     finished?: true
   }
 
@@ -3314,6 +3246,7 @@ export namespace Prisma {
     startup_1_score?: true
     startup_2_score?: true
     winner_id?: true
+    tournament_edition?: true
     finished?: true
   }
 
@@ -3324,6 +3257,7 @@ export namespace Prisma {
     startup_1_score?: true
     startup_2_score?: true
     winner_id?: true
+    tournament_edition?: true
     finished?: true
     _all?: true
   }
@@ -3421,6 +3355,7 @@ export namespace Prisma {
     startup_1_score: number | null
     startup_2_score: number | null
     winner_id: number | null
+    tournament_edition: number
     finished: boolean
     _count: BattleCountAggregateOutputType | null
     _avg: BattleAvgAggregateOutputType | null
@@ -3450,6 +3385,7 @@ export namespace Prisma {
     startup_1_score?: boolean
     startup_2_score?: boolean
     winner_id?: boolean
+    tournament_edition?: boolean
     finished?: boolean
     startup_1?: boolean | StartupDefaultArgs<ExtArgs>
     startup_2?: boolean | StartupDefaultArgs<ExtArgs>
@@ -3464,10 +3400,11 @@ export namespace Prisma {
     startup_1_score?: boolean
     startup_2_score?: boolean
     winner_id?: boolean
+    tournament_edition?: boolean
     finished?: boolean
   }
 
-  export type BattleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_battle" | "id_startup_1" | "id_startup_2" | "startup_1_score" | "startup_2_score" | "winner_id" | "finished", ExtArgs["result"]["battle"]>
+  export type BattleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_battle" | "id_startup_1" | "id_startup_2" | "startup_1_score" | "startup_2_score" | "winner_id" | "tournament_edition" | "finished", ExtArgs["result"]["battle"]>
   export type BattleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     startup_1?: boolean | StartupDefaultArgs<ExtArgs>
     startup_2?: boolean | StartupDefaultArgs<ExtArgs>
@@ -3486,6 +3423,7 @@ export namespace Prisma {
       startup_1_score: number | null
       startup_2_score: number | null
       winner_id: number | null
+      tournament_edition: number
       finished: boolean
     }, ExtArgs["result"]["battle"]>
     composites: {}
@@ -3887,6 +3825,7 @@ export namespace Prisma {
     readonly startup_1_score: FieldRef<"Battle", 'Int'>
     readonly startup_2_score: FieldRef<"Battle", 'Int'>
     readonly winner_id: FieldRef<"Battle", 'Int'>
+    readonly tournament_edition: FieldRef<"Battle", 'Int'>
     readonly finished: FieldRef<"Battle", 'Boolean'>
   }
     
@@ -4277,950 +4216,6 @@ export namespace Prisma {
 
 
   /**
-   * Model Event
-   */
-
-  export type AggregateEvent = {
-    _count: EventCountAggregateOutputType | null
-    _avg: EventAvgAggregateOutputType | null
-    _sum: EventSumAggregateOutputType | null
-    _min: EventMinAggregateOutputType | null
-    _max: EventMaxAggregateOutputType | null
-  }
-
-  export type EventAvgAggregateOutputType = {
-    value: number | null
-  }
-
-  export type EventSumAggregateOutputType = {
-    value: number | null
-  }
-
-  export type EventMinAggregateOutputType = {
-    id: string | null
-    description: string | null
-    value: number | null
-  }
-
-  export type EventMaxAggregateOutputType = {
-    id: string | null
-    description: string | null
-    value: number | null
-  }
-
-  export type EventCountAggregateOutputType = {
-    id: number
-    description: number
-    value: number
-    _all: number
-  }
-
-
-  export type EventAvgAggregateInputType = {
-    value?: true
-  }
-
-  export type EventSumAggregateInputType = {
-    value?: true
-  }
-
-  export type EventMinAggregateInputType = {
-    id?: true
-    description?: true
-    value?: true
-  }
-
-  export type EventMaxAggregateInputType = {
-    id?: true
-    description?: true
-    value?: true
-  }
-
-  export type EventCountAggregateInputType = {
-    id?: true
-    description?: true
-    value?: true
-    _all?: true
-  }
-
-  export type EventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Event to aggregate.
-     */
-    where?: EventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Events to fetch.
-     */
-    orderBy?: EventOrderByWithRelationInput | EventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: EventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Events from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Events.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Events
-    **/
-    _count?: true | EventCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: EventAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: EventSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: EventMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: EventMaxAggregateInputType
-  }
-
-  export type GetEventAggregateType<T extends EventAggregateArgs> = {
-        [P in keyof T & keyof AggregateEvent]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateEvent[P]>
-      : GetScalarType<T[P], AggregateEvent[P]>
-  }
-
-
-
-
-  export type EventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EventWhereInput
-    orderBy?: EventOrderByWithAggregationInput | EventOrderByWithAggregationInput[]
-    by: EventScalarFieldEnum[] | EventScalarFieldEnum
-    having?: EventScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: EventCountAggregateInputType | true
-    _avg?: EventAvgAggregateInputType
-    _sum?: EventSumAggregateInputType
-    _min?: EventMinAggregateInputType
-    _max?: EventMaxAggregateInputType
-  }
-
-  export type EventGroupByOutputType = {
-    id: string
-    description: string
-    value: number
-    _count: EventCountAggregateOutputType | null
-    _avg: EventAvgAggregateOutputType | null
-    _sum: EventSumAggregateOutputType | null
-    _min: EventMinAggregateOutputType | null
-    _max: EventMaxAggregateOutputType | null
-  }
-
-  type GetEventGroupByPayload<T extends EventGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<EventGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof EventGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], EventGroupByOutputType[P]>
-            : GetScalarType<T[P], EventGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type EventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    description?: boolean
-    value?: boolean
-  }, ExtArgs["result"]["event"]>
-
-
-
-  export type EventSelectScalar = {
-    id?: boolean
-    description?: boolean
-    value?: boolean
-  }
-
-  export type EventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "value", ExtArgs["result"]["event"]>
-
-  export type $EventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Event"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      description: string
-      value: number
-    }, ExtArgs["result"]["event"]>
-    composites: {}
-  }
-
-  type EventGetPayload<S extends boolean | null | undefined | EventDefaultArgs> = $Result.GetResult<Prisma.$EventPayload, S>
-
-  type EventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<EventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: EventCountAggregateInputType | true
-    }
-
-  export interface EventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Event'], meta: { name: 'Event' } }
-    /**
-     * Find zero or one Event that matches the filter.
-     * @param {EventFindUniqueArgs} args - Arguments to find a Event
-     * @example
-     * // Get one Event
-     * const event = await prisma.event.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends EventFindUniqueArgs>(args: SelectSubset<T, EventFindUniqueArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Event that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {EventFindUniqueOrThrowArgs} args - Arguments to find a Event
-     * @example
-     * // Get one Event
-     * const event = await prisma.event.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends EventFindUniqueOrThrowArgs>(args: SelectSubset<T, EventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Event that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {EventFindFirstArgs} args - Arguments to find a Event
-     * @example
-     * // Get one Event
-     * const event = await prisma.event.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends EventFindFirstArgs>(args?: SelectSubset<T, EventFindFirstArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Event that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {EventFindFirstOrThrowArgs} args - Arguments to find a Event
-     * @example
-     * // Get one Event
-     * const event = await prisma.event.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends EventFindFirstOrThrowArgs>(args?: SelectSubset<T, EventFindFirstOrThrowArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Events that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {EventFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Events
-     * const events = await prisma.event.findMany()
-     * 
-     * // Get first 10 Events
-     * const events = await prisma.event.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const eventWithIdOnly = await prisma.event.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends EventFindManyArgs>(args?: SelectSubset<T, EventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Event.
-     * @param {EventCreateArgs} args - Arguments to create a Event.
-     * @example
-     * // Create one Event
-     * const Event = await prisma.event.create({
-     *   data: {
-     *     // ... data to create a Event
-     *   }
-     * })
-     * 
-     */
-    create<T extends EventCreateArgs>(args: SelectSubset<T, EventCreateArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Events.
-     * @param {EventCreateManyArgs} args - Arguments to create many Events.
-     * @example
-     * // Create many Events
-     * const event = await prisma.event.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends EventCreateManyArgs>(args?: SelectSubset<T, EventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Event.
-     * @param {EventDeleteArgs} args - Arguments to delete one Event.
-     * @example
-     * // Delete one Event
-     * const Event = await prisma.event.delete({
-     *   where: {
-     *     // ... filter to delete one Event
-     *   }
-     * })
-     * 
-     */
-    delete<T extends EventDeleteArgs>(args: SelectSubset<T, EventDeleteArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Event.
-     * @param {EventUpdateArgs} args - Arguments to update one Event.
-     * @example
-     * // Update one Event
-     * const event = await prisma.event.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends EventUpdateArgs>(args: SelectSubset<T, EventUpdateArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Events.
-     * @param {EventDeleteManyArgs} args - Arguments to filter Events to delete.
-     * @example
-     * // Delete a few Events
-     * const { count } = await prisma.event.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends EventDeleteManyArgs>(args?: SelectSubset<T, EventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Events.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {EventUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Events
-     * const event = await prisma.event.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends EventUpdateManyArgs>(args: SelectSubset<T, EventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Event.
-     * @param {EventUpsertArgs} args - Arguments to update or create a Event.
-     * @example
-     * // Update or create a Event
-     * const event = await prisma.event.upsert({
-     *   create: {
-     *     // ... data to create a Event
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Event we want to update
-     *   }
-     * })
-     */
-    upsert<T extends EventUpsertArgs>(args: SelectSubset<T, EventUpsertArgs<ExtArgs>>): Prisma__EventClient<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Events that matches the filter.
-     * @param {EventFindRawArgs} args - Select which filters you would like to apply.
-     * @example
-     * const event = await prisma.event.findRaw({
-     *   filter: { age: { $gt: 25 } }
-     * })
-     */
-    findRaw(args?: EventFindRawArgs): Prisma.PrismaPromise<JsonObject>
-
-    /**
-     * Perform aggregation operations on a Event.
-     * @param {EventAggregateRawArgs} args - Select which aggregations you would like to apply.
-     * @example
-     * const event = await prisma.event.aggregateRaw({
-     *   pipeline: [
-     *     { $match: { status: "registered" } },
-     *     { $group: { _id: "$country", total: { $sum: 1 } } }
-     *   ]
-     * })
-     */
-    aggregateRaw(args?: EventAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
-
-
-    /**
-     * Count the number of Events.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {EventCountArgs} args - Arguments to filter Events to count.
-     * @example
-     * // Count the number of Events
-     * const count = await prisma.event.count({
-     *   where: {
-     *     // ... the filter for the Events we want to count
-     *   }
-     * })
-    **/
-    count<T extends EventCountArgs>(
-      args?: Subset<T, EventCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], EventCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Event.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {EventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends EventAggregateArgs>(args: Subset<T, EventAggregateArgs>): Prisma.PrismaPromise<GetEventAggregateType<T>>
-
-    /**
-     * Group by Event.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {EventGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends EventGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: EventGroupByArgs['orderBy'] }
-        : { orderBy?: EventGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, EventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Event model
-   */
-  readonly fields: EventFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Event.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__EventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Event model
-   */
-  interface EventFieldRefs {
-    readonly id: FieldRef<"Event", 'String'>
-    readonly description: FieldRef<"Event", 'String'>
-    readonly value: FieldRef<"Event", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Event findUnique
-   */
-  export type EventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * Filter, which Event to fetch.
-     */
-    where: EventWhereUniqueInput
-  }
-
-  /**
-   * Event findUniqueOrThrow
-   */
-  export type EventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * Filter, which Event to fetch.
-     */
-    where: EventWhereUniqueInput
-  }
-
-  /**
-   * Event findFirst
-   */
-  export type EventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * Filter, which Event to fetch.
-     */
-    where?: EventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Events to fetch.
-     */
-    orderBy?: EventOrderByWithRelationInput | EventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Events.
-     */
-    cursor?: EventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Events from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Events.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Events.
-     */
-    distinct?: EventScalarFieldEnum | EventScalarFieldEnum[]
-  }
-
-  /**
-   * Event findFirstOrThrow
-   */
-  export type EventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * Filter, which Event to fetch.
-     */
-    where?: EventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Events to fetch.
-     */
-    orderBy?: EventOrderByWithRelationInput | EventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Events.
-     */
-    cursor?: EventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Events from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Events.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Events.
-     */
-    distinct?: EventScalarFieldEnum | EventScalarFieldEnum[]
-  }
-
-  /**
-   * Event findMany
-   */
-  export type EventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * Filter, which Events to fetch.
-     */
-    where?: EventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Events to fetch.
-     */
-    orderBy?: EventOrderByWithRelationInput | EventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Events.
-     */
-    cursor?: EventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Events from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Events.
-     */
-    skip?: number
-    distinct?: EventScalarFieldEnum | EventScalarFieldEnum[]
-  }
-
-  /**
-   * Event create
-   */
-  export type EventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * The data needed to create a Event.
-     */
-    data: XOR<EventCreateInput, EventUncheckedCreateInput>
-  }
-
-  /**
-   * Event createMany
-   */
-  export type EventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Events.
-     */
-    data: EventCreateManyInput | EventCreateManyInput[]
-  }
-
-  /**
-   * Event update
-   */
-  export type EventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * The data needed to update a Event.
-     */
-    data: XOR<EventUpdateInput, EventUncheckedUpdateInput>
-    /**
-     * Choose, which Event to update.
-     */
-    where: EventWhereUniqueInput
-  }
-
-  /**
-   * Event updateMany
-   */
-  export type EventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Events.
-     */
-    data: XOR<EventUpdateManyMutationInput, EventUncheckedUpdateManyInput>
-    /**
-     * Filter which Events to update
-     */
-    where?: EventWhereInput
-    /**
-     * Limit how many Events to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Event upsert
-   */
-  export type EventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * The filter to search for the Event to update in case it exists.
-     */
-    where: EventWhereUniqueInput
-    /**
-     * In case the Event found by the `where` argument doesn't exist, create a new Event with this data.
-     */
-    create: XOR<EventCreateInput, EventUncheckedCreateInput>
-    /**
-     * In case the Event was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<EventUpdateInput, EventUncheckedUpdateInput>
-  }
-
-  /**
-   * Event delete
-   */
-  export type EventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-    /**
-     * Filter which Event to delete.
-     */
-    where: EventWhereUniqueInput
-  }
-
-  /**
-   * Event deleteMany
-   */
-  export type EventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Events to delete
-     */
-    where?: EventWhereInput
-    /**
-     * Limit how many Events to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Event findRaw
-   */
-  export type EventFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
-     */
-    filter?: InputJsonValue
-    /**
-     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-  /**
-   * Event aggregateRaw
-   */
-  export type EventAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
-     */
-    pipeline?: InputJsonValue[]
-    /**
-     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-  /**
-   * Event without action
-   */
-  export type EventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Event
-     */
-    select?: EventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Event
-     */
-    omit?: EventOmit<ExtArgs> | null
-  }
-
-
-  /**
    * Enums
    */
 
@@ -5229,10 +4224,11 @@ export namespace Prisma {
     name: 'name',
     slogan: 'slogan',
     founding_year: 'founding_year',
+    tournament_edition: 'tournament_edition',
     score: 'score',
     convincing_pitches: 'convincing_pitches',
     bugged_products: 'bugged_products',
-    attracted_users: 'attracted_users',
+    user_traction: 'user_traction',
     pissed_investor: 'pissed_investor',
     fake_news_pitches: 'fake_news_pitches'
   };
@@ -5256,19 +4252,11 @@ export namespace Prisma {
     startup_1_score: 'startup_1_score',
     startup_2_score: 'startup_2_score',
     winner_id: 'winner_id',
+    tournament_edition: 'tournament_edition',
     finished: 'finished'
   };
 
   export type BattleScalarFieldEnum = (typeof BattleScalarFieldEnum)[keyof typeof BattleScalarFieldEnum]
-
-
-  export const EventScalarFieldEnum: {
-    id: 'id',
-    description: 'description',
-    value: 'value'
-  };
-
-  export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5352,10 +4340,11 @@ export namespace Prisma {
     name?: StringFilter<"Startup"> | string
     slogan?: StringFilter<"Startup"> | string
     founding_year?: IntFilter<"Startup"> | number
-    score?: FloatFilter<"Startup"> | number
+    tournament_edition?: IntFilter<"Startup"> | number
+    score?: FloatNullableFilter<"Startup"> | number | null
     convincing_pitches?: IntNullableFilter<"Startup"> | number | null
     bugged_products?: IntNullableFilter<"Startup"> | number | null
-    attracted_users?: IntNullableFilter<"Startup"> | number | null
+    user_traction?: IntNullableFilter<"Startup"> | number | null
     pissed_investor?: IntNullableFilter<"Startup"> | number | null
     fake_news_pitches?: IntNullableFilter<"Startup"> | number | null
     battle_as_startup_1?: BattleListRelationFilter
@@ -5367,10 +4356,11 @@ export namespace Prisma {
     name?: SortOrder
     slogan?: SortOrder
     founding_year?: SortOrder
+    tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
     bugged_products?: SortOrder
-    attracted_users?: SortOrder
+    user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
     battle_as_startup_1?: BattleOrderByRelationAggregateInput
@@ -5385,10 +4375,11 @@ export namespace Prisma {
     NOT?: StartupWhereInput | StartupWhereInput[]
     slogan?: StringFilter<"Startup"> | string
     founding_year?: IntFilter<"Startup"> | number
-    score?: FloatFilter<"Startup"> | number
+    tournament_edition?: IntFilter<"Startup"> | number
+    score?: FloatNullableFilter<"Startup"> | number | null
     convincing_pitches?: IntNullableFilter<"Startup"> | number | null
     bugged_products?: IntNullableFilter<"Startup"> | number | null
-    attracted_users?: IntNullableFilter<"Startup"> | number | null
+    user_traction?: IntNullableFilter<"Startup"> | number | null
     pissed_investor?: IntNullableFilter<"Startup"> | number | null
     fake_news_pitches?: IntNullableFilter<"Startup"> | number | null
     battle_as_startup_1?: BattleListRelationFilter
@@ -5400,10 +4391,11 @@ export namespace Prisma {
     name?: SortOrder
     slogan?: SortOrder
     founding_year?: SortOrder
+    tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
     bugged_products?: SortOrder
-    attracted_users?: SortOrder
+    user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
     _count?: StartupCountOrderByAggregateInput
@@ -5421,10 +4413,11 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Startup"> | string
     slogan?: StringWithAggregatesFilter<"Startup"> | string
     founding_year?: IntWithAggregatesFilter<"Startup"> | number
-    score?: FloatWithAggregatesFilter<"Startup"> | number
+    tournament_edition?: IntWithAggregatesFilter<"Startup"> | number
+    score?: FloatNullableWithAggregatesFilter<"Startup"> | number | null
     convincing_pitches?: IntNullableWithAggregatesFilter<"Startup"> | number | null
     bugged_products?: IntNullableWithAggregatesFilter<"Startup"> | number | null
-    attracted_users?: IntNullableWithAggregatesFilter<"Startup"> | number | null
+    user_traction?: IntNullableWithAggregatesFilter<"Startup"> | number | null
     pissed_investor?: IntNullableWithAggregatesFilter<"Startup"> | number | null
     fake_news_pitches?: IntNullableWithAggregatesFilter<"Startup"> | number | null
   }
@@ -5483,6 +4476,7 @@ export namespace Prisma {
     startup_1_score?: IntNullableFilter<"Battle"> | number | null
     startup_2_score?: IntNullableFilter<"Battle"> | number | null
     winner_id?: IntNullableFilter<"Battle"> | number | null
+    tournament_edition?: IntFilter<"Battle"> | number
     finished?: BoolFilter<"Battle"> | boolean
     startup_1?: XOR<StartupScalarRelationFilter, StartupWhereInput>
     startup_2?: XOR<StartupScalarRelationFilter, StartupWhereInput>
@@ -5495,6 +4489,7 @@ export namespace Prisma {
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
+    tournament_edition?: SortOrder
     finished?: SortOrder
     startup_1?: StartupOrderByWithRelationInput
     startup_2?: StartupOrderByWithRelationInput
@@ -5510,6 +4505,7 @@ export namespace Prisma {
     startup_1_score?: IntNullableFilter<"Battle"> | number | null
     startup_2_score?: IntNullableFilter<"Battle"> | number | null
     winner_id?: IntNullableFilter<"Battle"> | number | null
+    tournament_edition?: IntFilter<"Battle"> | number
     finished?: BoolFilter<"Battle"> | boolean
     startup_1?: XOR<StartupScalarRelationFilter, StartupWhereInput>
     startup_2?: XOR<StartupScalarRelationFilter, StartupWhereInput>
@@ -5522,6 +4518,7 @@ export namespace Prisma {
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
+    tournament_edition?: SortOrder
     finished?: SortOrder
     _count?: BattleCountOrderByAggregateInput
     _avg?: BattleAvgOrderByAggregateInput
@@ -5540,51 +4537,8 @@ export namespace Prisma {
     startup_1_score?: IntNullableWithAggregatesFilter<"Battle"> | number | null
     startup_2_score?: IntNullableWithAggregatesFilter<"Battle"> | number | null
     winner_id?: IntNullableWithAggregatesFilter<"Battle"> | number | null
+    tournament_edition?: IntWithAggregatesFilter<"Battle"> | number
     finished?: BoolWithAggregatesFilter<"Battle"> | boolean
-  }
-
-  export type EventWhereInput = {
-    AND?: EventWhereInput | EventWhereInput[]
-    OR?: EventWhereInput[]
-    NOT?: EventWhereInput | EventWhereInput[]
-    id?: StringFilter<"Event"> | string
-    description?: StringFilter<"Event"> | string
-    value?: IntFilter<"Event"> | number
-  }
-
-  export type EventOrderByWithRelationInput = {
-    id?: SortOrder
-    description?: SortOrder
-    value?: SortOrder
-  }
-
-  export type EventWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: EventWhereInput | EventWhereInput[]
-    OR?: EventWhereInput[]
-    NOT?: EventWhereInput | EventWhereInput[]
-    description?: StringFilter<"Event"> | string
-    value?: IntFilter<"Event"> | number
-  }, "id">
-
-  export type EventOrderByWithAggregationInput = {
-    id?: SortOrder
-    description?: SortOrder
-    value?: SortOrder
-    _count?: EventCountOrderByAggregateInput
-    _avg?: EventAvgOrderByAggregateInput
-    _max?: EventMaxOrderByAggregateInput
-    _min?: EventMinOrderByAggregateInput
-    _sum?: EventSumOrderByAggregateInput
-  }
-
-  export type EventScalarWhereWithAggregatesInput = {
-    AND?: EventScalarWhereWithAggregatesInput | EventScalarWhereWithAggregatesInput[]
-    OR?: EventScalarWhereWithAggregatesInput[]
-    NOT?: EventScalarWhereWithAggregatesInput | EventScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Event"> | string
-    description?: StringWithAggregatesFilter<"Event"> | string
-    value?: IntWithAggregatesFilter<"Event"> | number
   }
 
   export type StartupCreateInput = {
@@ -5592,10 +4546,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score?: number
+    tournament_edition: number
+    score?: number | null
     convincing_pitches?: number | null
     bugged_products?: number | null
-    attracted_users?: number | null
+    user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
     battle_as_startup_1?: BattleCreateNestedManyWithoutStartup_1Input
@@ -5607,10 +4562,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score?: number
+    tournament_edition: number
+    score?: number | null
     convincing_pitches?: number | null
     bugged_products?: number | null
-    attracted_users?: number | null
+    user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
     battle_as_startup_1?: BattleUncheckedCreateNestedManyWithoutStartup_1Input
@@ -5621,10 +4577,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     battle_as_startup_1?: BattleUpdateManyWithoutStartup_1NestedInput
@@ -5635,10 +4592,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     battle_as_startup_1?: BattleUncheckedUpdateManyWithoutStartup_1NestedInput
@@ -5650,10 +4608,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score?: number
+    tournament_edition: number
+    score?: number | null
     convincing_pitches?: number | null
     bugged_products?: number | null
-    attracted_users?: number | null
+    user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
   }
@@ -5662,10 +4621,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -5674,10 +4634,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -5725,6 +4686,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
     startup_1: StartupCreateNestedOneWithoutBattle_as_startup_1Input
     startup_2: StartupCreateNestedOneWithoutBattle_as_startup_2Input
@@ -5737,6 +4699,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
   }
 
@@ -5744,6 +4707,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
     startup_1?: StartupUpdateOneRequiredWithoutBattle_as_startup_1NestedInput
     startup_2?: StartupUpdateOneRequiredWithoutBattle_as_startup_2NestedInput
@@ -5755,6 +4719,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -5765,6 +4730,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
   }
 
@@ -5772,6 +4738,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -5781,45 +4748,8 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
-  }
-
-  export type EventCreateInput = {
-    id?: string
-    description: string
-    value: number
-  }
-
-  export type EventUncheckedCreateInput = {
-    id?: string
-    description: string
-    value: number
-  }
-
-  export type EventUpdateInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    value?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type EventUncheckedUpdateInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    value?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type EventCreateManyInput = {
-    id?: string
-    description: string
-    value: number
-  }
-
-  export type EventUpdateManyMutationInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    value?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type EventUncheckedUpdateManyInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    value?: IntFieldUpdateOperationsInput | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5848,15 +4778,16 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+    isSet?: boolean
   }
 
   export type IntNullableFilter<$PrismaModel = never> = {
@@ -5886,20 +4817,22 @@ export namespace Prisma {
     name?: SortOrder
     slogan?: SortOrder
     founding_year?: SortOrder
+    tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
     bugged_products?: SortOrder
-    attracted_users?: SortOrder
+    user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
   }
 
   export type StartupAvgOrderByAggregateInput = {
     founding_year?: SortOrder
+    tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
     bugged_products?: SortOrder
-    attracted_users?: SortOrder
+    user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
   }
@@ -5909,10 +4842,11 @@ export namespace Prisma {
     name?: SortOrder
     slogan?: SortOrder
     founding_year?: SortOrder
+    tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
     bugged_products?: SortOrder
-    attracted_users?: SortOrder
+    user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
   }
@@ -5922,20 +4856,22 @@ export namespace Prisma {
     name?: SortOrder
     slogan?: SortOrder
     founding_year?: SortOrder
+    tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
     bugged_products?: SortOrder
-    attracted_users?: SortOrder
+    user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
   }
 
   export type StartupSumOrderByAggregateInput = {
     founding_year?: SortOrder
+    tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
     bugged_products?: SortOrder
-    attracted_users?: SortOrder
+    user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
   }
@@ -5974,20 +4910,21 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -6052,6 +4989,7 @@ export namespace Prisma {
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
+    tournament_edition?: SortOrder
     finished?: SortOrder
   }
 
@@ -6059,6 +4997,7 @@ export namespace Prisma {
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
+    tournament_edition?: SortOrder
   }
 
   export type BattleMaxOrderByAggregateInput = {
@@ -6068,6 +5007,7 @@ export namespace Prisma {
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
+    tournament_edition?: SortOrder
     finished?: SortOrder
   }
 
@@ -6078,6 +5018,7 @@ export namespace Prisma {
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
+    tournament_edition?: SortOrder
     finished?: SortOrder
   }
 
@@ -6085,6 +5026,7 @@ export namespace Prisma {
     startup_1_score?: SortOrder
     startup_2_score?: SortOrder
     winner_id?: SortOrder
+    tournament_edition?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -6093,32 +5035,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type EventCountOrderByAggregateInput = {
-    id?: SortOrder
-    description?: SortOrder
-    value?: SortOrder
-  }
-
-  export type EventAvgOrderByAggregateInput = {
-    value?: SortOrder
-  }
-
-  export type EventMaxOrderByAggregateInput = {
-    id?: SortOrder
-    description?: SortOrder
-    value?: SortOrder
-  }
-
-  export type EventMinOrderByAggregateInput = {
-    id?: SortOrder
-    description?: SortOrder
-    value?: SortOrder
-  }
-
-  export type EventSumOrderByAggregateInput = {
-    value?: SortOrder
   }
 
   export type BattleCreateNestedManyWithoutStartup_1Input = {
@@ -6161,12 +5077,13 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type FloatFieldUpdateOperationsInput = {
-    set?: number
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+    unset?: boolean
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -6291,15 +5208,16 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+    isSet?: boolean
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
@@ -6347,7 +5265,7 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedFloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -6355,12 +5273,24 @@ export namespace Prisma {
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -6377,18 +5307,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-    isSet?: boolean
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
     isSet?: boolean
   }
 
@@ -6410,6 +5328,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
     startup_2: StartupCreateNestedOneWithoutBattle_as_startup_2Input
   }
@@ -6420,6 +5339,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
   }
 
@@ -6437,6 +5357,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
     startup_1: StartupCreateNestedOneWithoutBattle_as_startup_1Input
   }
@@ -6447,6 +5368,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
   }
 
@@ -6485,6 +5407,7 @@ export namespace Prisma {
     startup_1_score?: IntNullableFilter<"Battle"> | number | null
     startup_2_score?: IntNullableFilter<"Battle"> | number | null
     winner_id?: IntNullableFilter<"Battle"> | number | null
+    tournament_edition?: IntFilter<"Battle"> | number
     finished?: BoolFilter<"Battle"> | boolean
   }
 
@@ -6509,10 +5432,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score?: number
+    tournament_edition: number
+    score?: number | null
     convincing_pitches?: number | null
     bugged_products?: number | null
-    attracted_users?: number | null
+    user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
     battle_as_startup_2?: BattleCreateNestedManyWithoutStartup_2Input
@@ -6523,10 +5447,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score?: number
+    tournament_edition: number
+    score?: number | null
     convincing_pitches?: number | null
     bugged_products?: number | null
-    attracted_users?: number | null
+    user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
     battle_as_startup_2?: BattleUncheckedCreateNestedManyWithoutStartup_2Input
@@ -6542,10 +5467,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score?: number
+    tournament_edition: number
+    score?: number | null
     convincing_pitches?: number | null
     bugged_products?: number | null
-    attracted_users?: number | null
+    user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
     battle_as_startup_1?: BattleCreateNestedManyWithoutStartup_1Input
@@ -6556,10 +5482,11 @@ export namespace Prisma {
     name: string
     slogan: string
     founding_year: number
-    score?: number
+    tournament_edition: number
+    score?: number | null
     convincing_pitches?: number | null
     bugged_products?: number | null
-    attracted_users?: number | null
+    user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
     battle_as_startup_1?: BattleUncheckedCreateNestedManyWithoutStartup_1Input
@@ -6585,10 +5512,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     battle_as_startup_2?: BattleUpdateManyWithoutStartup_2NestedInput
@@ -6598,10 +5526,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     battle_as_startup_2?: BattleUncheckedUpdateManyWithoutStartup_2NestedInput
@@ -6622,10 +5551,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     battle_as_startup_1?: BattleUpdateManyWithoutStartup_1NestedInput
@@ -6635,10 +5565,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slogan?: StringFieldUpdateOperationsInput | string
     founding_year?: IntFieldUpdateOperationsInput | number
-    score?: FloatFieldUpdateOperationsInput | number
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
-    attracted_users?: NullableIntFieldUpdateOperationsInput | number | null
+    user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
     battle_as_startup_1?: BattleUncheckedUpdateManyWithoutStartup_1NestedInput
@@ -6650,6 +5581,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
   }
 
@@ -6659,6 +5591,7 @@ export namespace Prisma {
     startup_1_score?: number | null
     startup_2_score?: number | null
     winner_id?: number | null
+    tournament_edition: number
     finished?: boolean
   }
 
@@ -6666,6 +5599,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
     startup_2?: StartupUpdateOneRequiredWithoutBattle_as_startup_2NestedInput
   }
@@ -6675,6 +5609,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -6683,6 +5618,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -6690,6 +5626,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
     startup_1?: StartupUpdateOneRequiredWithoutBattle_as_startup_1NestedInput
   }
@@ -6699,6 +5636,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -6707,6 +5645,7 @@ export namespace Prisma {
     startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
     startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
     winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
     finished?: BoolFieldUpdateOperationsInput | boolean
   }
 

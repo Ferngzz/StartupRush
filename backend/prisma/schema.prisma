@@ -13,13 +13,13 @@ model Startup {
     name            String      @unique
     slogan          String
     founding_year   Int
-    score           Float       @default(70)
+    tournament_edition Int
+    score           Float?       @default(70)
     convincing_pitches Int?     @default(0)
     bugged_products Int?        @default(0)
-    attracted_users Int?        @default(0)
+    user_traction Int?        @default(0)
     pissed_investor Int?        @default(0)
-    fake_news_pitches       Int?        @default(0)
-
+    fake_news_pitches   Int?        @default(0)
     battle_as_startup_1 Battle[] @relation("startup1")
     battle_as_startup_2 Battle[] @relation("startup2")
 }
@@ -39,11 +39,6 @@ model Battle {
     startup_1_score Int?        @default(0)
     startup_2_score Int?        @default(0)
     winner_id       Int?
+    tournament_edition Int
     finished        Boolean     @default(false)
-}
-
-model Event {
-    id              String      @id @default(auto()) @map("_id") @db.ObjectId
-    description     String
-    value           Int
 }

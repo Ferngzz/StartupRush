@@ -8,6 +8,10 @@ app.use(express.json());
 
 app.use(routes)
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+try {
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando em http://localhost:${PORT}`);
+    });
+} catch (error) {
+    console.log(error)
+}

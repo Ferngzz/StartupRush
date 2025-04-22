@@ -56,9 +56,8 @@ export async function getAllStartups(req: Request, res: Response) {
     }
 }
 
-export async function updateStartupScore(req: Request, res: Response) {
+export async function updateStartup(req: Request, res: Response) {
     const {id} = req.params;
-    const toIncrement = parseFloat(req.body.increment);
 
     try {
         const startup = await prisma.startup.findFirst({
@@ -79,60 +78,15 @@ export async function updateStartupScore(req: Request, res: Response) {
                 id_startup: id,
             },
             data: {
-                score: {
-                    increment: toIncrement,
-                }
-            }
-        })
-
-        res.json(
-            {
-                status: 200,
-                data: updatedStartup,
-            }
-        )
-    } catch (e) {
-        console.log(e)
-        res.status(500).json({
-            status: 500,
-            message: "Internal Server Error",
-        })
-    }
-}
-
-export async function updateStartupFlags(req: Request, res: Response) {
-    const {id} = req.params;
-
-    try {
-        const startup = await prisma.startup.findFirst({
-            where: {
-                id_startup: id,
-            }
-        })
-
-        if (!startup) {
-            res.status(404).json({
-                status: 404,
-                message: "Startup not found",
-            })
-        }
-
-        console.log()
-
-
-        const updatedStartup = await prisma.startup.update({
-            where: {
-                id_startup: id,
-            },
-            data: {
+                score: req.body.score,
                 convincing_pitches: {
                     increment: req.body.convincing_pitches ? 1 : 0,
                 },
                 bugged_products: {
                     increment: req.body.bugged_products ? 1 : 0,
                 },
-                attracted_users: {
-                    increment: req.body.attracted_users ? 1 : 0,
+                user_traction: {
+                    increment: req.body.user_traction ? 1 : 0,
                 },
                 pissed_investor: {
                     increment: req.body.pissed_investor ? 1 : 0,
