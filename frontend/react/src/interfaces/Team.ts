@@ -4,7 +4,7 @@ export interface Team {
     slogan: string;
     score: number;
     convincing_pitches?: boolean;
-    bugged_products?: boolean;
+    buggy_products?: boolean;
     user_traction?: boolean;
     pissed_investor?: boolean;
     fake_news_pitches?: boolean;

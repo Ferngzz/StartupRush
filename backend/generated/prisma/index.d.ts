@@ -1061,7 +1061,7 @@ export namespace Prisma {
     tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
-    bugged_products: number | null
+    buggy_products: number | null
     user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
@@ -1072,7 +1072,7 @@ export namespace Prisma {
     tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
-    bugged_products: number | null
+    buggy_products: number | null
     user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
@@ -1086,7 +1086,7 @@ export namespace Prisma {
     tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
-    bugged_products: number | null
+    buggy_products: number | null
     user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
@@ -1100,7 +1100,7 @@ export namespace Prisma {
     tournament_edition: number | null
     score: number | null
     convincing_pitches: number | null
-    bugged_products: number | null
+    buggy_products: number | null
     user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
@@ -1114,7 +1114,7 @@ export namespace Prisma {
     tournament_edition: number
     score: number
     convincing_pitches: number
-    bugged_products: number
+    buggy_products: number
     user_traction: number
     pissed_investor: number
     fake_news_pitches: number
@@ -1127,7 +1127,7 @@ export namespace Prisma {
     tournament_edition?: true
     score?: true
     convincing_pitches?: true
-    bugged_products?: true
+    buggy_products?: true
     user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
@@ -1138,7 +1138,7 @@ export namespace Prisma {
     tournament_edition?: true
     score?: true
     convincing_pitches?: true
-    bugged_products?: true
+    buggy_products?: true
     user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
@@ -1152,7 +1152,7 @@ export namespace Prisma {
     tournament_edition?: true
     score?: true
     convincing_pitches?: true
-    bugged_products?: true
+    buggy_products?: true
     user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
@@ -1166,7 +1166,7 @@ export namespace Prisma {
     tournament_edition?: true
     score?: true
     convincing_pitches?: true
-    bugged_products?: true
+    buggy_products?: true
     user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
@@ -1180,7 +1180,7 @@ export namespace Prisma {
     tournament_edition?: true
     score?: true
     convincing_pitches?: true
-    bugged_products?: true
+    buggy_products?: true
     user_traction?: true
     pissed_investor?: true
     fake_news_pitches?: true
@@ -1281,7 +1281,7 @@ export namespace Prisma {
     tournament_edition: number
     score: number | null
     convincing_pitches: number | null
-    bugged_products: number | null
+    buggy_products: number | null
     user_traction: number | null
     pissed_investor: number | null
     fake_news_pitches: number | null
@@ -1314,7 +1314,7 @@ export namespace Prisma {
     tournament_edition?: boolean
     score?: boolean
     convincing_pitches?: boolean
-    bugged_products?: boolean
+    buggy_products?: boolean
     user_traction?: boolean
     pissed_investor?: boolean
     fake_news_pitches?: boolean
@@ -1333,13 +1333,13 @@ export namespace Prisma {
     tournament_edition?: boolean
     score?: boolean
     convincing_pitches?: boolean
-    bugged_products?: boolean
+    buggy_products?: boolean
     user_traction?: boolean
     pissed_investor?: boolean
     fake_news_pitches?: boolean
   }
 
-  export type StartupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_startup" | "name" | "slogan" | "founding_year" | "tournament_edition" | "score" | "convincing_pitches" | "bugged_products" | "user_traction" | "pissed_investor" | "fake_news_pitches", ExtArgs["result"]["startup"]>
+  export type StartupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_startup" | "name" | "slogan" | "founding_year" | "tournament_edition" | "score" | "convincing_pitches" | "buggy_products" | "user_traction" | "pissed_investor" | "fake_news_pitches", ExtArgs["result"]["startup"]>
   export type StartupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     battle_as_startup_1?: boolean | Startup$battle_as_startup_1Args<ExtArgs>
     battle_as_startup_2?: boolean | Startup$battle_as_startup_2Args<ExtArgs>
@@ -1360,7 +1360,7 @@ export namespace Prisma {
       tournament_edition: number
       score: number | null
       convincing_pitches: number | null
-      bugged_products: number | null
+      buggy_products: number | null
       user_traction: number | null
       pissed_investor: number | null
       fake_news_pitches: number | null
@@ -1765,7 +1765,7 @@ export namespace Prisma {
     readonly tournament_edition: FieldRef<"Startup", 'Int'>
     readonly score: FieldRef<"Startup", 'Float'>
     readonly convincing_pitches: FieldRef<"Startup", 'Int'>
-    readonly bugged_products: FieldRef<"Startup", 'Int'>
+    readonly buggy_products: FieldRef<"Startup", 'Int'>
     readonly user_traction: FieldRef<"Startup", 'Int'>
     readonly pissed_investor: FieldRef<"Startup", 'Int'>
     readonly fake_news_pitches: FieldRef<"Startup", 'Int'>
@@ -2218,60 +2218,56 @@ export namespace Prisma {
   }
 
   export type TournamentAvgAggregateOutputType = {
-    edition: number | null
-    id_winner: number | null
+    tournament_edition: number | null
   }
 
   export type TournamentSumAggregateOutputType = {
-    edition: number | null
-    id_winner: number | null
+    tournament_edition: number | null
   }
 
   export type TournamentMinAggregateOutputType = {
     id_tournament: string | null
-    edition: number | null
-    id_winner: number | null
+    tournament_edition: number | null
+    id_winner: string | null
   }
 
   export type TournamentMaxAggregateOutputType = {
     id_tournament: string | null
-    edition: number | null
-    id_winner: number | null
+    tournament_edition: number | null
+    id_winner: string | null
   }
 
   export type TournamentCountAggregateOutputType = {
     id_tournament: number
-    edition: number
+    tournament_edition: number
     id_winner: number
     _all: number
   }
 
 
   export type TournamentAvgAggregateInputType = {
-    edition?: true
-    id_winner?: true
+    tournament_edition?: true
   }
 
   export type TournamentSumAggregateInputType = {
-    edition?: true
-    id_winner?: true
+    tournament_edition?: true
   }
 
   export type TournamentMinAggregateInputType = {
     id_tournament?: true
-    edition?: true
+    tournament_edition?: true
     id_winner?: true
   }
 
   export type TournamentMaxAggregateInputType = {
     id_tournament?: true
-    edition?: true
+    tournament_edition?: true
     id_winner?: true
   }
 
   export type TournamentCountAggregateInputType = {
     id_tournament?: true
-    edition?: true
+    tournament_edition?: true
     id_winner?: true
     _all?: true
   }
@@ -2364,8 +2360,8 @@ export namespace Prisma {
 
   export type TournamentGroupByOutputType = {
     id_tournament: string
-    edition: number
-    id_winner: number | null
+    tournament_edition: number
+    id_winner: string | null
     _count: TournamentCountAggregateOutputType | null
     _avg: TournamentAvgAggregateOutputType | null
     _sum: TournamentSumAggregateOutputType | null
@@ -2389,7 +2385,7 @@ export namespace Prisma {
 
   export type TournamentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_tournament?: boolean
-    edition?: boolean
+    tournament_edition?: boolean
     id_winner?: boolean
   }, ExtArgs["result"]["tournament"]>
 
@@ -2397,19 +2393,19 @@ export namespace Prisma {
 
   export type TournamentSelectScalar = {
     id_tournament?: boolean
-    edition?: boolean
+    tournament_edition?: boolean
     id_winner?: boolean
   }
 
-  export type TournamentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_tournament" | "edition" | "id_winner", ExtArgs["result"]["tournament"]>
+  export type TournamentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_tournament" | "tournament_edition" | "id_winner", ExtArgs["result"]["tournament"]>
 
   export type $TournamentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Tournament"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id_tournament: string
-      edition: number
-      id_winner: number | null
+      tournament_edition: number
+      id_winner: string | null
     }, ExtArgs["result"]["tournament"]>
     composites: {}
   }
@@ -2803,8 +2799,8 @@ export namespace Prisma {
    */
   interface TournamentFieldRefs {
     readonly id_tournament: FieldRef<"Tournament", 'String'>
-    readonly edition: FieldRef<"Tournament", 'Int'>
-    readonly id_winner: FieldRef<"Tournament", 'Int'>
+    readonly tournament_edition: FieldRef<"Tournament", 'Int'>
+    readonly id_winner: FieldRef<"Tournament", 'String'>
   }
     
 
@@ -3187,7 +3183,6 @@ export namespace Prisma {
     startup_2_score: number | null
     winner_id: number | null
     tournament_edition: number | null
-    finished: boolean | null
   }
 
   export type BattleMaxAggregateOutputType = {
@@ -3198,7 +3193,6 @@ export namespace Prisma {
     startup_2_score: number | null
     winner_id: number | null
     tournament_edition: number | null
-    finished: boolean | null
   }
 
   export type BattleCountAggregateOutputType = {
@@ -3209,7 +3203,6 @@ export namespace Prisma {
     startup_2_score: number
     winner_id: number
     tournament_edition: number
-    finished: number
     _all: number
   }
 
@@ -3236,7 +3229,6 @@ export namespace Prisma {
     startup_2_score?: true
     winner_id?: true
     tournament_edition?: true
-    finished?: true
   }
 
   export type BattleMaxAggregateInputType = {
@@ -3247,7 +3239,6 @@ export namespace Prisma {
     startup_2_score?: true
     winner_id?: true
     tournament_edition?: true
-    finished?: true
   }
 
   export type BattleCountAggregateInputType = {
@@ -3258,7 +3249,6 @@ export namespace Prisma {
     startup_2_score?: true
     winner_id?: true
     tournament_edition?: true
-    finished?: true
     _all?: true
   }
 
@@ -3352,11 +3342,10 @@ export namespace Prisma {
     id_battle: string
     id_startup_1: string
     id_startup_2: string
-    startup_1_score: number | null
-    startup_2_score: number | null
-    winner_id: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished: boolean
     _count: BattleCountAggregateOutputType | null
     _avg: BattleAvgAggregateOutputType | null
     _sum: BattleSumAggregateOutputType | null
@@ -3386,7 +3375,6 @@ export namespace Prisma {
     startup_2_score?: boolean
     winner_id?: boolean
     tournament_edition?: boolean
-    finished?: boolean
     startup_1?: boolean | StartupDefaultArgs<ExtArgs>
     startup_2?: boolean | StartupDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["battle"]>
@@ -3401,10 +3389,9 @@ export namespace Prisma {
     startup_2_score?: boolean
     winner_id?: boolean
     tournament_edition?: boolean
-    finished?: boolean
   }
 
-  export type BattleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_battle" | "id_startup_1" | "id_startup_2" | "startup_1_score" | "startup_2_score" | "winner_id" | "tournament_edition" | "finished", ExtArgs["result"]["battle"]>
+  export type BattleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_battle" | "id_startup_1" | "id_startup_2" | "startup_1_score" | "startup_2_score" | "winner_id" | "tournament_edition", ExtArgs["result"]["battle"]>
   export type BattleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     startup_1?: boolean | StartupDefaultArgs<ExtArgs>
     startup_2?: boolean | StartupDefaultArgs<ExtArgs>
@@ -3420,11 +3407,10 @@ export namespace Prisma {
       id_battle: string
       id_startup_1: string
       id_startup_2: string
-      startup_1_score: number | null
-      startup_2_score: number | null
-      winner_id: number | null
+      startup_1_score: number
+      startup_2_score: number
+      winner_id: number
       tournament_edition: number
-      finished: boolean
     }, ExtArgs["result"]["battle"]>
     composites: {}
   }
@@ -3826,7 +3812,6 @@ export namespace Prisma {
     readonly startup_2_score: FieldRef<"Battle", 'Int'>
     readonly winner_id: FieldRef<"Battle", 'Int'>
     readonly tournament_edition: FieldRef<"Battle", 'Int'>
-    readonly finished: FieldRef<"Battle", 'Boolean'>
   }
     
 
@@ -4227,7 +4212,7 @@ export namespace Prisma {
     tournament_edition: 'tournament_edition',
     score: 'score',
     convincing_pitches: 'convincing_pitches',
-    bugged_products: 'bugged_products',
+    buggy_products: 'buggy_products',
     user_traction: 'user_traction',
     pissed_investor: 'pissed_investor',
     fake_news_pitches: 'fake_news_pitches'
@@ -4238,7 +4223,7 @@ export namespace Prisma {
 
   export const TournamentScalarFieldEnum: {
     id_tournament: 'id_tournament',
-    edition: 'edition',
+    tournament_edition: 'tournament_edition',
     id_winner: 'id_winner'
   };
 
@@ -4252,8 +4237,7 @@ export namespace Prisma {
     startup_1_score: 'startup_1_score',
     startup_2_score: 'startup_2_score',
     winner_id: 'winner_id',
-    tournament_edition: 'tournament_edition',
-    finished: 'finished'
+    tournament_edition: 'tournament_edition'
   };
 
   export type BattleScalarFieldEnum = (typeof BattleScalarFieldEnum)[keyof typeof BattleScalarFieldEnum]
@@ -4320,13 +4304,6 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
   /**
    * Deep Input Types
    */
@@ -4343,7 +4320,7 @@ export namespace Prisma {
     tournament_edition?: IntFilter<"Startup"> | number
     score?: FloatNullableFilter<"Startup"> | number | null
     convincing_pitches?: IntNullableFilter<"Startup"> | number | null
-    bugged_products?: IntNullableFilter<"Startup"> | number | null
+    buggy_products?: IntNullableFilter<"Startup"> | number | null
     user_traction?: IntNullableFilter<"Startup"> | number | null
     pissed_investor?: IntNullableFilter<"Startup"> | number | null
     fake_news_pitches?: IntNullableFilter<"Startup"> | number | null
@@ -4359,7 +4336,7 @@ export namespace Prisma {
     tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
-    bugged_products?: SortOrder
+    buggy_products?: SortOrder
     user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
@@ -4378,7 +4355,7 @@ export namespace Prisma {
     tournament_edition?: IntFilter<"Startup"> | number
     score?: FloatNullableFilter<"Startup"> | number | null
     convincing_pitches?: IntNullableFilter<"Startup"> | number | null
-    bugged_products?: IntNullableFilter<"Startup"> | number | null
+    buggy_products?: IntNullableFilter<"Startup"> | number | null
     user_traction?: IntNullableFilter<"Startup"> | number | null
     pissed_investor?: IntNullableFilter<"Startup"> | number | null
     fake_news_pitches?: IntNullableFilter<"Startup"> | number | null
@@ -4394,7 +4371,7 @@ export namespace Prisma {
     tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
-    bugged_products?: SortOrder
+    buggy_products?: SortOrder
     user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
@@ -4416,7 +4393,7 @@ export namespace Prisma {
     tournament_edition?: IntWithAggregatesFilter<"Startup"> | number
     score?: FloatNullableWithAggregatesFilter<"Startup"> | number | null
     convincing_pitches?: IntNullableWithAggregatesFilter<"Startup"> | number | null
-    bugged_products?: IntNullableWithAggregatesFilter<"Startup"> | number | null
+    buggy_products?: IntNullableWithAggregatesFilter<"Startup"> | number | null
     user_traction?: IntNullableWithAggregatesFilter<"Startup"> | number | null
     pissed_investor?: IntNullableWithAggregatesFilter<"Startup"> | number | null
     fake_news_pitches?: IntNullableWithAggregatesFilter<"Startup"> | number | null
@@ -4427,28 +4404,28 @@ export namespace Prisma {
     OR?: TournamentWhereInput[]
     NOT?: TournamentWhereInput | TournamentWhereInput[]
     id_tournament?: StringFilter<"Tournament"> | string
-    edition?: IntFilter<"Tournament"> | number
-    id_winner?: IntNullableFilter<"Tournament"> | number | null
+    tournament_edition?: IntFilter<"Tournament"> | number
+    id_winner?: StringNullableFilter<"Tournament"> | string | null
   }
 
   export type TournamentOrderByWithRelationInput = {
     id_tournament?: SortOrder
-    edition?: SortOrder
+    tournament_edition?: SortOrder
     id_winner?: SortOrder
   }
 
   export type TournamentWhereUniqueInput = Prisma.AtLeast<{
     id_tournament?: string
+    tournament_edition?: number
     AND?: TournamentWhereInput | TournamentWhereInput[]
     OR?: TournamentWhereInput[]
     NOT?: TournamentWhereInput | TournamentWhereInput[]
-    edition?: IntFilter<"Tournament"> | number
-    id_winner?: IntNullableFilter<"Tournament"> | number | null
-  }, "id_tournament">
+    id_winner?: StringNullableFilter<"Tournament"> | string | null
+  }, "id_tournament" | "tournament_edition">
 
   export type TournamentOrderByWithAggregationInput = {
     id_tournament?: SortOrder
-    edition?: SortOrder
+    tournament_edition?: SortOrder
     id_winner?: SortOrder
     _count?: TournamentCountOrderByAggregateInput
     _avg?: TournamentAvgOrderByAggregateInput
@@ -4462,8 +4439,8 @@ export namespace Prisma {
     OR?: TournamentScalarWhereWithAggregatesInput[]
     NOT?: TournamentScalarWhereWithAggregatesInput | TournamentScalarWhereWithAggregatesInput[]
     id_tournament?: StringWithAggregatesFilter<"Tournament"> | string
-    edition?: IntWithAggregatesFilter<"Tournament"> | number
-    id_winner?: IntNullableWithAggregatesFilter<"Tournament"> | number | null
+    tournament_edition?: IntWithAggregatesFilter<"Tournament"> | number
+    id_winner?: StringNullableWithAggregatesFilter<"Tournament"> | string | null
   }
 
   export type BattleWhereInput = {
@@ -4473,11 +4450,10 @@ export namespace Prisma {
     id_battle?: StringFilter<"Battle"> | string
     id_startup_1?: StringFilter<"Battle"> | string
     id_startup_2?: StringFilter<"Battle"> | string
-    startup_1_score?: IntNullableFilter<"Battle"> | number | null
-    startup_2_score?: IntNullableFilter<"Battle"> | number | null
-    winner_id?: IntNullableFilter<"Battle"> | number | null
+    startup_1_score?: IntFilter<"Battle"> | number
+    startup_2_score?: IntFilter<"Battle"> | number
+    winner_id?: IntFilter<"Battle"> | number
     tournament_edition?: IntFilter<"Battle"> | number
-    finished?: BoolFilter<"Battle"> | boolean
     startup_1?: XOR<StartupScalarRelationFilter, StartupWhereInput>
     startup_2?: XOR<StartupScalarRelationFilter, StartupWhereInput>
   }
@@ -4490,7 +4466,6 @@ export namespace Prisma {
     startup_2_score?: SortOrder
     winner_id?: SortOrder
     tournament_edition?: SortOrder
-    finished?: SortOrder
     startup_1?: StartupOrderByWithRelationInput
     startup_2?: StartupOrderByWithRelationInput
   }
@@ -4502,11 +4477,10 @@ export namespace Prisma {
     NOT?: BattleWhereInput | BattleWhereInput[]
     id_startup_1?: StringFilter<"Battle"> | string
     id_startup_2?: StringFilter<"Battle"> | string
-    startup_1_score?: IntNullableFilter<"Battle"> | number | null
-    startup_2_score?: IntNullableFilter<"Battle"> | number | null
-    winner_id?: IntNullableFilter<"Battle"> | number | null
+    startup_1_score?: IntFilter<"Battle"> | number
+    startup_2_score?: IntFilter<"Battle"> | number
+    winner_id?: IntFilter<"Battle"> | number
     tournament_edition?: IntFilter<"Battle"> | number
-    finished?: BoolFilter<"Battle"> | boolean
     startup_1?: XOR<StartupScalarRelationFilter, StartupWhereInput>
     startup_2?: XOR<StartupScalarRelationFilter, StartupWhereInput>
   }, "id_battle">
@@ -4519,7 +4493,6 @@ export namespace Prisma {
     startup_2_score?: SortOrder
     winner_id?: SortOrder
     tournament_edition?: SortOrder
-    finished?: SortOrder
     _count?: BattleCountOrderByAggregateInput
     _avg?: BattleAvgOrderByAggregateInput
     _max?: BattleMaxOrderByAggregateInput
@@ -4534,11 +4507,10 @@ export namespace Prisma {
     id_battle?: StringWithAggregatesFilter<"Battle"> | string
     id_startup_1?: StringWithAggregatesFilter<"Battle"> | string
     id_startup_2?: StringWithAggregatesFilter<"Battle"> | string
-    startup_1_score?: IntNullableWithAggregatesFilter<"Battle"> | number | null
-    startup_2_score?: IntNullableWithAggregatesFilter<"Battle"> | number | null
-    winner_id?: IntNullableWithAggregatesFilter<"Battle"> | number | null
+    startup_1_score?: IntWithAggregatesFilter<"Battle"> | number
+    startup_2_score?: IntWithAggregatesFilter<"Battle"> | number
+    winner_id?: IntWithAggregatesFilter<"Battle"> | number
     tournament_edition?: IntWithAggregatesFilter<"Battle"> | number
-    finished?: BoolWithAggregatesFilter<"Battle"> | boolean
   }
 
   export type StartupCreateInput = {
@@ -4549,7 +4521,7 @@ export namespace Prisma {
     tournament_edition: number
     score?: number | null
     convincing_pitches?: number | null
-    bugged_products?: number | null
+    buggy_products?: number | null
     user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
@@ -4565,7 +4537,7 @@ export namespace Prisma {
     tournament_edition: number
     score?: number | null
     convincing_pitches?: number | null
-    bugged_products?: number | null
+    buggy_products?: number | null
     user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
@@ -4580,7 +4552,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -4595,7 +4567,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -4611,7 +4583,7 @@ export namespace Prisma {
     tournament_edition: number
     score?: number | null
     convincing_pitches?: number | null
-    bugged_products?: number | null
+    buggy_products?: number | null
     user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
@@ -4624,7 +4596,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -4637,7 +4609,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -4645,49 +4617,48 @@ export namespace Prisma {
 
   export type TournamentCreateInput = {
     id_tournament?: string
-    edition: number
-    id_winner?: number | null
+    tournament_edition: number
+    id_winner?: string | null
   }
 
   export type TournamentUncheckedCreateInput = {
     id_tournament?: string
-    edition: number
-    id_winner?: number | null
+    tournament_edition: number
+    id_winner?: string | null
   }
 
   export type TournamentUpdateInput = {
-    edition?: IntFieldUpdateOperationsInput | number
-    id_winner?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    id_winner?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TournamentUncheckedUpdateInput = {
-    edition?: IntFieldUpdateOperationsInput | number
-    id_winner?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    id_winner?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TournamentCreateManyInput = {
     id_tournament?: string
-    edition: number
-    id_winner?: number | null
+    tournament_edition: number
+    id_winner?: string | null
   }
 
   export type TournamentUpdateManyMutationInput = {
-    edition?: IntFieldUpdateOperationsInput | number
-    id_winner?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    id_winner?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TournamentUncheckedUpdateManyInput = {
-    edition?: IntFieldUpdateOperationsInput | number
-    id_winner?: NullableIntFieldUpdateOperationsInput | number | null
+    tournament_edition?: IntFieldUpdateOperationsInput | number
+    id_winner?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BattleCreateInput = {
     id_battle?: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
     startup_1: StartupCreateNestedOneWithoutBattle_as_startup_1Input
     startup_2: StartupCreateNestedOneWithoutBattle_as_startup_2Input
   }
@@ -4696,19 +4667,17 @@ export namespace Prisma {
     id_battle?: string
     id_startup_1: string
     id_startup_2: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
   }
 
   export type BattleUpdateInput = {
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
     startup_1?: StartupUpdateOneRequiredWithoutBattle_as_startup_1NestedInput
     startup_2?: StartupUpdateOneRequiredWithoutBattle_as_startup_2NestedInput
   }
@@ -4716,40 +4685,36 @@ export namespace Prisma {
   export type BattleUncheckedUpdateInput = {
     id_startup_1?: StringFieldUpdateOperationsInput | string
     id_startup_2?: StringFieldUpdateOperationsInput | string
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BattleCreateManyInput = {
     id_battle?: string
     id_startup_1: string
     id_startup_2: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
   }
 
   export type BattleUpdateManyMutationInput = {
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BattleUncheckedUpdateManyInput = {
     id_startup_1?: StringFieldUpdateOperationsInput | string
     id_startup_2?: StringFieldUpdateOperationsInput | string
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -4820,7 +4785,7 @@ export namespace Prisma {
     tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
-    bugged_products?: SortOrder
+    buggy_products?: SortOrder
     user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
@@ -4831,7 +4796,7 @@ export namespace Prisma {
     tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
-    bugged_products?: SortOrder
+    buggy_products?: SortOrder
     user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
@@ -4845,7 +4810,7 @@ export namespace Prisma {
     tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
-    bugged_products?: SortOrder
+    buggy_products?: SortOrder
     user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
@@ -4859,7 +4824,7 @@ export namespace Prisma {
     tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
-    bugged_products?: SortOrder
+    buggy_products?: SortOrder
     user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
@@ -4870,7 +4835,7 @@ export namespace Prisma {
     tournament_edition?: SortOrder
     score?: SortOrder
     convincing_pitches?: SortOrder
-    bugged_products?: SortOrder
+    buggy_products?: SortOrder
     user_traction?: SortOrder
     pissed_investor?: SortOrder
     fake_news_pitches?: SortOrder
@@ -4944,37 +4909,65 @@ export namespace Prisma {
     isSet?: boolean
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
+  }
+
   export type TournamentCountOrderByAggregateInput = {
     id_tournament?: SortOrder
-    edition?: SortOrder
+    tournament_edition?: SortOrder
     id_winner?: SortOrder
   }
 
   export type TournamentAvgOrderByAggregateInput = {
-    edition?: SortOrder
-    id_winner?: SortOrder
+    tournament_edition?: SortOrder
   }
 
   export type TournamentMaxOrderByAggregateInput = {
     id_tournament?: SortOrder
-    edition?: SortOrder
+    tournament_edition?: SortOrder
     id_winner?: SortOrder
   }
 
   export type TournamentMinOrderByAggregateInput = {
     id_tournament?: SortOrder
-    edition?: SortOrder
+    tournament_edition?: SortOrder
     id_winner?: SortOrder
   }
 
   export type TournamentSumOrderByAggregateInput = {
-    edition?: SortOrder
-    id_winner?: SortOrder
+    tournament_edition?: SortOrder
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
   export type StartupScalarRelationFilter = {
@@ -4990,7 +4983,6 @@ export namespace Prisma {
     startup_2_score?: SortOrder
     winner_id?: SortOrder
     tournament_edition?: SortOrder
-    finished?: SortOrder
   }
 
   export type BattleAvgOrderByAggregateInput = {
@@ -5008,7 +5000,6 @@ export namespace Prisma {
     startup_2_score?: SortOrder
     winner_id?: SortOrder
     tournament_edition?: SortOrder
-    finished?: SortOrder
   }
 
   export type BattleMinOrderByAggregateInput = {
@@ -5019,7 +5010,6 @@ export namespace Prisma {
     startup_2_score?: SortOrder
     winner_id?: SortOrder
     tournament_edition?: SortOrder
-    finished?: SortOrder
   }
 
   export type BattleSumOrderByAggregateInput = {
@@ -5027,14 +5017,6 @@ export namespace Prisma {
     startup_2_score?: SortOrder
     winner_id?: SortOrder
     tournament_edition?: SortOrder
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type BattleCreateNestedManyWithoutStartup_1Input = {
@@ -5151,6 +5133,11 @@ export namespace Prisma {
     deleteMany?: BattleScalarWhereInput | BattleScalarWhereInput[]
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+    unset?: boolean
+  }
+
   export type StartupCreateNestedOneWithoutBattle_as_startup_1Input = {
     create?: XOR<StartupCreateWithoutBattle_as_startup_1Input, StartupUncheckedCreateWithoutBattle_as_startup_1Input>
     connectOrCreate?: StartupCreateOrConnectWithoutBattle_as_startup_1Input
@@ -5161,10 +5148,6 @@ export namespace Prisma {
     create?: XOR<StartupCreateWithoutBattle_as_startup_2Input, StartupUncheckedCreateWithoutBattle_as_startup_2Input>
     connectOrCreate?: StartupCreateOrConnectWithoutBattle_as_startup_2Input
     connect?: StartupWhereUniqueInput
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
   }
 
   export type StartupUpdateOneRequiredWithoutBattle_as_startup_1NestedInput = {
@@ -5310,37 +5293,55 @@ export namespace Prisma {
     isSet?: boolean
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
   export type BattleCreateWithoutStartup_1Input = {
     id_battle?: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
     startup_2: StartupCreateNestedOneWithoutBattle_as_startup_2Input
   }
 
   export type BattleUncheckedCreateWithoutStartup_1Input = {
     id_battle?: string
     id_startup_2: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
   }
 
   export type BattleCreateOrConnectWithoutStartup_1Input = {
@@ -5354,22 +5355,20 @@ export namespace Prisma {
 
   export type BattleCreateWithoutStartup_2Input = {
     id_battle?: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
     startup_1: StartupCreateNestedOneWithoutBattle_as_startup_1Input
   }
 
   export type BattleUncheckedCreateWithoutStartup_2Input = {
     id_battle?: string
     id_startup_1: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
   }
 
   export type BattleCreateOrConnectWithoutStartup_2Input = {
@@ -5404,11 +5403,10 @@ export namespace Prisma {
     id_battle?: StringFilter<"Battle"> | string
     id_startup_1?: StringFilter<"Battle"> | string
     id_startup_2?: StringFilter<"Battle"> | string
-    startup_1_score?: IntNullableFilter<"Battle"> | number | null
-    startup_2_score?: IntNullableFilter<"Battle"> | number | null
-    winner_id?: IntNullableFilter<"Battle"> | number | null
+    startup_1_score?: IntFilter<"Battle"> | number
+    startup_2_score?: IntFilter<"Battle"> | number
+    winner_id?: IntFilter<"Battle"> | number
     tournament_edition?: IntFilter<"Battle"> | number
-    finished?: BoolFilter<"Battle"> | boolean
   }
 
   export type BattleUpsertWithWhereUniqueWithoutStartup_2Input = {
@@ -5435,7 +5433,7 @@ export namespace Prisma {
     tournament_edition: number
     score?: number | null
     convincing_pitches?: number | null
-    bugged_products?: number | null
+    buggy_products?: number | null
     user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
@@ -5450,7 +5448,7 @@ export namespace Prisma {
     tournament_edition: number
     score?: number | null
     convincing_pitches?: number | null
-    bugged_products?: number | null
+    buggy_products?: number | null
     user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
@@ -5470,7 +5468,7 @@ export namespace Prisma {
     tournament_edition: number
     score?: number | null
     convincing_pitches?: number | null
-    bugged_products?: number | null
+    buggy_products?: number | null
     user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
@@ -5485,7 +5483,7 @@ export namespace Prisma {
     tournament_edition: number
     score?: number | null
     convincing_pitches?: number | null
-    bugged_products?: number | null
+    buggy_products?: number | null
     user_traction?: number | null
     pissed_investor?: number | null
     fake_news_pitches?: number | null
@@ -5515,7 +5513,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -5529,7 +5527,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -5554,7 +5552,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -5568,7 +5566,7 @@ export namespace Prisma {
     tournament_edition?: IntFieldUpdateOperationsInput | number
     score?: NullableFloatFieldUpdateOperationsInput | number | null
     convincing_pitches?: NullableIntFieldUpdateOperationsInput | number | null
-    bugged_products?: NullableIntFieldUpdateOperationsInput | number | null
+    buggy_products?: NullableIntFieldUpdateOperationsInput | number | null
     user_traction?: NullableIntFieldUpdateOperationsInput | number | null
     pissed_investor?: NullableIntFieldUpdateOperationsInput | number | null
     fake_news_pitches?: NullableIntFieldUpdateOperationsInput | number | null
@@ -5578,75 +5576,67 @@ export namespace Prisma {
   export type BattleCreateManyStartup_1Input = {
     id_battle?: string
     id_startup_2: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
   }
 
   export type BattleCreateManyStartup_2Input = {
     id_battle?: string
     id_startup_1: string
-    startup_1_score?: number | null
-    startup_2_score?: number | null
-    winner_id?: number | null
+    startup_1_score: number
+    startup_2_score: number
+    winner_id: number
     tournament_edition: number
-    finished?: boolean
   }
 
   export type BattleUpdateWithoutStartup_1Input = {
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
     startup_2?: StartupUpdateOneRequiredWithoutBattle_as_startup_2NestedInput
   }
 
   export type BattleUncheckedUpdateWithoutStartup_1Input = {
     id_startup_2?: StringFieldUpdateOperationsInput | string
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BattleUncheckedUpdateManyWithoutStartup_1Input = {
     id_startup_2?: StringFieldUpdateOperationsInput | string
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BattleUpdateWithoutStartup_2Input = {
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
     startup_1?: StartupUpdateOneRequiredWithoutBattle_as_startup_1NestedInput
   }
 
   export type BattleUncheckedUpdateWithoutStartup_2Input = {
     id_startup_1?: StringFieldUpdateOperationsInput | string
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BattleUncheckedUpdateManyWithoutStartup_2Input = {
     id_startup_1?: StringFieldUpdateOperationsInput | string
-    startup_1_score?: NullableIntFieldUpdateOperationsInput | number | null
-    startup_2_score?: NullableIntFieldUpdateOperationsInput | number | null
-    winner_id?: NullableIntFieldUpdateOperationsInput | number | null
+    startup_1_score?: IntFieldUpdateOperationsInput | number
+    startup_2_score?: IntFieldUpdateOperationsInput | number
+    winner_id?: IntFieldUpdateOperationsInput | number
     tournament_edition?: IntFieldUpdateOperationsInput | number
-    finished?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

@@ -16,7 +16,7 @@ model Startup {
   tournament_edition  Int
   score               Float?   @default(70)
   convincing_pitches  Int?     @default(0)
-  bugged_products     Int?     @default(0)
+  buggy_products      Int?     @default(0)
   user_traction       Int?     @default(0)
   pissed_investor     Int?     @default(0)
   fake_news_pitches   Int?     @default(0)
@@ -25,9 +25,9 @@ model Startup {
 }
 
 model Tournament {
-  id_tournament String @id @default(auto()) @map("_id") @db.ObjectId
-  edition       Int
-  id_winner     Int?
+  id_tournament      String  @id @default(auto()) @map("_id") @db.ObjectId
+  tournament_edition Int     @unique
+  id_winner          String?
 }
 
 model Battle {
@@ -36,9 +36,8 @@ model Battle {
   id_startup_1       String  @db.ObjectId
   startup_2          Startup @relation("startup2", fields: [id_startup_2], references: [id_startup])
   id_startup_2       String  @db.ObjectId
-  startup_1_score    Int?    @default(0)
-  startup_2_score    Int?    @default(0)
-  winner_id          Int?
+  startup_1_score    Int
+  startup_2_score    Int
+  winner_id          Int
   tournament_edition Int
-  finished           Boolean @default(false)
 }

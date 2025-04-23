@@ -4,13 +4,33 @@ import {Header} from "../components/Header.tsx";
 import logoPlaceholder from "../assets/team_logo_placeholder.svg"
 import congratulations from "../assets/congratulations.svg"
 import Button from "@mui/material/Button";
+import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 export function ChampionPage() {
 
     // Vai receber o campeão da BattlePage
     const location = useLocation()
     const tournamentChampion = location.state?.champion
+    const navigate = useNavigate();
 
+    const updateChampion = async () => {
+        const res = await fetch("/startup/tournament", {
+            method: "GET",
+        })
+        const data = await res.json()
+
+        console.log("data :" + data)
+
+        const tournament = tournamentChampion.data.tournament
+
+        console.log("Tournament: " + tournament)
+
+    }
+
+    useEffect(() => {
+        updateChampion()
+    },[])
 
     return (
         <Grid container
@@ -32,7 +52,10 @@ export function ChampionPage() {
                 <Grid
                     className="statsButton"
                     container>
-                    <Button>Stats</Button>
+                    <Button
+                        onClick={() => {
+                            navigate("/stats")
+                        }}>Stats</Button>
                 </Grid>
             </Grid>
         </Grid>

@@ -3,10 +3,11 @@ import {BattleCard} from '../components/BattleCard.tsx'
 import {Team} from "../interfaces/Team.ts"
 import {Duel} from "../interfaces/Duel.ts"
 import {Header} from "../components/Header.tsx";
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef, useContext} from "react";
 import {Modal} from "@mui/material";
 import {BattleModal} from "../components/BattleModal.tsx";
 import {useNavigate} from "react-router-dom";
+import {EditionContext} from "../App.tsx"
 
 
 export function BattlePage() {
@@ -18,13 +19,21 @@ export function BattlePage() {
     const [finishRound, setFinishRound] = useState(false);
     const newTeamsRef = useRef<Team[]>([]);
     const navigate = useNavigate();
+    const {edition} = useContext(EditionContext)
 
     // Função para setar a fase de batalha
     async function setDuelPhase() {
-        const response = await fetch("/startup", {method: "GET"});
-        const data = await response.json();
+
+        console.log("Edition" + edition)
+        const res = await fetch(`/startup/${edition}`, {
+            method: "GET",
+
+        })
+        const data = await res.json();
 
         let teams: Team[];
+
+        console.log("data", data);
 
 
         // Na primeira rodada pega todos os times do banco
@@ -156,6 +165,9 @@ export function BattlePage() {
                         }
 
                         <Modal className="battlePageModal"
+                               disableEscapeKeyDown={true}
+                               disablePortal={true}
+                               disableScrollLock={true}
                                open={open} onClose={() => {
                             setActiveIndex(null)
                             setOpen(false)

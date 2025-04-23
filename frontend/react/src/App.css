@@ -23,53 +23,28 @@ body {
     width: 15rem;
 }
 
-.menuIcon {
-    color: #FFFFFF;
-    font-size: small;
-    padding-right: 2rem;
+/* Home Page */
+
+.homePage {
+    background-color: #023047;
+    height: 100vh;
+    overflow: hidden;
+    align-content: center;
+    justify-content: center;
 }
 
-.menu {
-    position: fixed;
-    border-radius: 16px;
-    background: #219EBC;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
-    overflow-y: auto;
-    max-height: 100vh;
-    z-index: 30;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
-    transition: transform ease;
-
-    transform: translateY(0);
-    top: 45px;
-    width: 300px;
-    right: 2rem;
-    height: auto;
+.homePageLogo {
+    animation: pulse 2s infinite linear alternate;
 }
 
-.menuContent {
-    display: flex;
-    align-items: center;
+.homePageButtons{
+    width: 200px;
+    align-self: center;
     justify-content: space-between;
-    background-color: #58B4D1;
-    border-radius: 16px;
-    padding: 1rem;
 }
-
-.menuContent img {
-    width: 40px;
+.homePageButtons Button{
+    background-color: #FB8500;
 }
-
-.menuContent p {
-    font-size: 30px;
-    padding-right: 1rem;
-] font-weight: bold;
-    color: #FFF;
-}
-
 
 /* Sign Up Page*/
 .signUpPage {
@@ -116,10 +91,25 @@ body {
     color: #FB8500;
 }
 
+.warningModal {
+    align-self: center;
+    justify-self: center;
+}
+
+.warningModalContainer {
+    background-color: #FFF;
+    width: fit-content;
+    border: 2px solid #000000;
+    height: fit-content;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
 /* Battle Card */
 .battleCard {
     display: flex;
-    justify-items: center;
+    justify-content: space-between;
     align-items: center;
     padding: 8px;
     background-color: #219EBC;
@@ -301,6 +291,36 @@ body {
 }
 
 .statsButton Button {
+    background-color: #FB8500;
+    color: white;
+}
+
+/* Stats Page */
+
+.statsPage {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.statsPageMainContainer {
+    justify-items: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background-color: #FFF;
+    border-radius: 24px;
+    border: 2px solid #000000;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+}
+
+.statsTable{
+    margin: 2rem auto;
+}
+
+.newTournamentButton Button{
+    margin-top: 1rem;
     background-color: #FB8500;
     color: white;
 }

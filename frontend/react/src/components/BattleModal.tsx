@@ -114,27 +114,48 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
         if (t1Score > t2Score) {
             sett1Win(true);
             setExistsWinner(true);
-            updateStartup(team1, t1Events, t1Score + 32)
-            winner(team1);
+            setTimeout(() => {
+                updateStartup(team1, t1Events, t1Score + 30)
+                updateStartup(team2, t2Events, t2Score)
+                team1.score = t1Score + 30
+                winner(team1);
+                onClose()
+            }, 3000)
         } else if (t2Score > t1Score) {
             sett2Win(true);
             setExistsWinner(true);
-            updateStartup(team2, t2Events ,t2Score + 32)
-            winner(team2);
+            setTimeout(() => {
+                updateStartup(team2, t2Events, t2Score + 30)
+                updateStartup(team1, t1Events, t1Score)
+                team2.score = t2Score + 30
+                winner(team2);
+                onClose()
+            }, 3000)
         } else {
             const random = Math.floor(Math.random() * 2);
             if (random === 1) {
                 sett1Win(true)
                 setExistsWinner(true)
-                updateStartup(team1, t1Events, t1Score + 32)
-                //console.log("sharkFight 1 " + t1Score)
-                winner(team1);
+                setT1Score(prevState => (prevState + 2))
+                setTimeout(() => {
+                    updateStartup(team1, t1Events, t1Score + 30)
+                    updateStartup(team2, t2Events, t2Score)
+                    team1.score = t1Score + 30
+                    winner(team1);
+                    onClose()
+                }, 3000)
             } else {
                 sett2Win(true);
                 setExistsWinner(true);
-                updateStartup(team2, t2Events ,t2Score + 32)
-                //console.log("sharkFight 2 " + t2Score)
-                winner(team2);
+                setT2Score(prevState => (prevState + 2))
+
+                setTimeout(() => {
+                    updateStartup(team2, t2Events, t2Score + 30)
+                    updateStartup(team1, t1Events, t1Score)
+                    team2.score = t2Score + 30
+                    winner(team2);
+                    onClose()
+                }, 3000)
             }
         }
         setIsClicked(true);
@@ -149,7 +170,7 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
                 id_startup: team.id_startup,
                 score: score,
                 convincing_pitches: flags.pitch,
-                bugged_products: flags.bug,
+                buggy_products: flags.bug,
                 user_traction: flags.traction,
                 pissed_investor: flags.investor,
                 fake_news_pitches: flags.fakeNews,
@@ -167,7 +188,7 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
                 body: toSend
             })
 
-            if (res.ok){
+            if (res.ok) {
                 console.log("Successfully updated")
             }
 
@@ -457,9 +478,8 @@ export function BattleModal({duel, winner, onClose}: BattleModalProps) {
                 className="modalButton"
                 onClick={() => {
                     defineWinner()
-                    onClose()
                 }}
-            >Send</Button>
+            >Submit</Button>
 
         </Grid>
 

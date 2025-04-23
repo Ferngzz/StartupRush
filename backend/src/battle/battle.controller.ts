@@ -1,4 +1,4 @@
-import e, {Request, Response} from 'express';
+import {Request, Response} from 'express';
 import prisma from '../client'
 
 export async function addStartup(req: Request, res: Response) {
@@ -59,13 +59,10 @@ export async function getAllStartups(req: Request, res: Response) {
 
 export async function getAllStartupsByEdition(req: Request, res: Response) {
     try {
-
-        const edition = parseInt(req.params.edition, 10)
-
         const startups = await prisma.startup.findMany(
             {
                 where: {
-                    tournament_edition: edition,
+                    tournament_edition: req.body,
                 }
             }
         );

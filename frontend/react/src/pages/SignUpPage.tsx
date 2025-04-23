@@ -2,10 +2,11 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import {Header} from "../components/Header.tsx";
-import {useContext, useRef} from "react";
+import {useState, useContext, useRef} from "react";
 import {Startup} from "../interfaces/Startup.ts"
 import {useNavigate} from "react-router-dom";
 import {EditionContext} from "../App.tsx"
+import {Modal} from "@mui/material";
 
 
 export function SignUpPage() {
@@ -13,13 +14,15 @@ export function SignUpPage() {
     const sloganRef = useRef<HTMLInputElement>(null);
     const foundingYearRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
-    const edition = useContext(EditionContext)
+    const {edition} = useContext(EditionContext)
+    const [open, setOpen] = useState(false);
+    const [message, setMessage] = useState("");
     /**
      * Função auxiliar para requisição GET,
      * devolve todas startups cadastradas.
      */
     const checkStartupQuantity = async () => {
-        const res = await fetch("/startup", {
+        const res = await fetch(`/startup/${edition}`, {
             method: "GET",
         })
         const data = await res.json()
@@ -41,7 +44,7 @@ export function SignUpPage() {
     }
 
     /**
-     * Função auxiliar para requisição POST,
+     * Função para requisição POST,
      * cria uma nova Startup no banco em fluxo normal.
      */
     const createStartup = async () => {
@@ -64,11 +67,14 @@ export function SignUpPage() {
 
             // Verificações para campos vazios,
             if (nameRef.current?.value == "") {
-                console.log("Enter Startup name")
+                setMessage("Enter Startup name");
+                setOpen(true);
             } else if (sloganRef.current?.value == "") {
-                console.log("Enter Startup slogan")
+                setMessage("Enter Startup slogan");
+                setOpen(true);
             } else if (foundingYearRef.current?.value == "") {
-                console.log("Enter Startup founding year")
+                setMessage("Enter Startup founding year");
+                setOpen(true);
             } else {
 
                 // Requisição de POST para a Startup criada anteriormente
@@ -83,13 +89,13 @@ export function SignUpPage() {
                 // Pode resultar em erro caso já exista startup com o nome informado
                 // visto que o nome está definido como @unique no prisma
                 if (!res.ok) {
-                    console.log("There's already a Startup with the informed name")
+                    setMessage("There's already a Startup with the informed name");
+                    setOpen(true);
                 } else {
-                    console.log("Signed up successfully")
+                    setMessage("Signed up successfully");
+                    setOpen(true);
                 }
             }
-
-
 
 
             // Verifica quantas startups já estão criadas
@@ -143,6 +149,19 @@ export function SignUpPage() {
                     variant="outlined"
                     inputRef={foundingYearRef}
                 />
+
+                <Modal className="warningModal"
+                       open={open} onClose={() => {
+
+                    setOpen(false)
+                }}>
+                    {open ?
+                        <Grid className="warningModalContainer">
+                            <p> {message} </p>
+
+                        </Grid> : <div/>
+                    }
+                </Modal>
 
                 <Grid container>
                     <Button variant="contained"
