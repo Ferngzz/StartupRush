@@ -258,6 +258,49 @@ body {
     height: 63px;
 }
 
+/*Champion Page*/
+.championPage {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
 
+.championPageMainContainer {
+    justify-items: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background-color: #FFF;
+    border-radius: 24px;
+    border: 2px solid #000000;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+}
 
+.championName {
+    font-size: 2rem;
+}
 
+.congratulations{
+    width: 24rem;
+    animation: pulse 1s linear infinite alternate;
+}
+
+.championSlogan {
+    color: #FB8500;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.championLogo {
+    width: 10rem;
+    border-radius: 360px;
+    border: 3px solid;
+    padding: 1rem;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.statsButton Button {
+    background-color: #FB8500;
+    color: white;
+}

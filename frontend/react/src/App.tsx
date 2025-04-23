@@ -3,19 +3,22 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {SignUpPage} from "./pages/SignUpPage.tsx";
 import {BattlePage} from "./pages/BattlePage.tsx";
 import {ChampionPage} from "./pages/ChampionPage.tsx";
-import {useState} from "react";
+import * as React from "react";
+
+export const EditionContext = React.createContext(1)
 
 function App() {
-const [edition, setEdition] = useState(1);
 
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<SignUpPage edition={edition}/>} />
-                <Route path="/BattlePage" element={<BattlePage/>} />
-                <Route path="/" element={<ChampionPage/>} />
-            </Routes>
-        </Router>
+        <EditionContext.Provider value={1}>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<SignUpPage/>}/>
+                    <Route path="/BattlePage" element={<BattlePage/>}/>
+                    <Route path="/ChampionPage" element={<ChampionPage/>}/>
+                </Routes>
+            </Router>
+        </EditionContext.Provider>
     )
 }
 

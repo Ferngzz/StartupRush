@@ -2,20 +2,18 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import {Header} from "../components/Header.tsx";
-import {useRef} from "react";
+import {useContext, useRef} from "react";
 import {Startup} from "../interfaces/Startup.ts"
 import {useNavigate} from "react-router-dom";
+import {EditionContext} from "../App.tsx"
 
-interface TournamentProps {
-    edition: number
-}
 
-export function SignUpPage({edition}: TournamentProps) {
+export function SignUpPage() {
     const nameRef = useRef<HTMLInputElement>(null);
     const sloganRef = useRef<HTMLInputElement>(null);
     const foundingYearRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
-
+    const edition = useContext(EditionContext)
     /**
      * Função auxiliar para requisição GET,
      * devolve todas startups cadastradas.
@@ -64,36 +62,40 @@ export function SignUpPage({edition}: TournamentProps) {
             // Converte em JSON para enviar pro backend
             const toSend = JSON.stringify(startup)
 
-
-            // Requisição de POST para a Startup criada anteriormente
-            const res = await fetch("/startup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: toSend
-            })
-
             // Verificações para campos vazios,
-            // Pode resultar em erro caso já exista startup com o nome informado
-            // visto que o nome está definido como @unique no prisma
-            if (!res.ok && nameRef.current?.value == "") {
+            if (nameRef.current?.value == "") {
                 console.log("Enter Startup name")
-            } else if (!res.ok && sloganRef.current?.value == "") {
+            } else if (sloganRef.current?.value == "") {
                 console.log("Enter Startup slogan")
-            } else if (!res.ok && foundingYearRef.current?.value == "") {
+            } else if (foundingYearRef.current?.value == "") {
                 console.log("Enter Startup founding year")
-            } else if (!res.ok) {
-                console.log("There's already a startup with the informed name")
             } else {
-                console.log("Start creating start up")
+
+                // Requisição de POST para a Startup criada anteriormente
+                const res = await fetch("/startup", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: toSend
+                })
+
+                // Pode resultar em erro caso já exista startup com o nome informado
+                // visto que o nome está definido como @unique no prisma
+                if (!res.ok) {
+                    console.log("There's already a Startup with the informed name")
+                } else {
+                    console.log("Signed up successfully")
+                }
             }
+
+
+
 
             // Verifica quantas startups já estão criadas
             const startupQuantity = await checkStartupQuantity()
 
-            // Se foi criada a oitava startup vai automaticamente para
-            // a BattlePage
+            // Se foi criada a oitava startup vai automaticamente para a BattlePage
             if (startupQuantity.length == 8) {
                 console.log("full tournament")
                 navigate("/battlePage")

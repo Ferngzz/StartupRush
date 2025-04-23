@@ -17,7 +17,6 @@ export function BattlePage() {
     const [round, setRound] = useState(1);
     const [finishRound, setFinishRound] = useState(false);
     const newTeamsRef = useRef<Team[]>([]);
-    const [champion, setChampion] = useState<Team>();
     const navigate = useNavigate();
 
     // Função para setar a fase de batalha
@@ -64,8 +63,8 @@ export function BattlePage() {
                 const team1 = temporaryTeams[0];
                 const team2 = temporaryTeams[1];
 
-                teams.splice(teams.indexOf(team1),1);
-                teams.splice(teams.indexOf(team2),1);
+                teams.splice(teams.indexOf(team1), 1);
+                teams.splice(teams.indexOf(team2), 1);
 
                 duelsTemp.push({team1, team2});
             }
@@ -88,6 +87,7 @@ export function BattlePage() {
     // Depois de terminar a análise de um duelo, tira ele da lista e registra o vencedor
     const handleDuels = (winner: Team) => {
         const newDuels: Duel[] = [...duels];
+
         newTeamsRef.current.push(winner);
 
         // Remove o duelo analisado da lista de duelos
@@ -101,21 +101,13 @@ export function BattlePage() {
         // Se teamQuantity for 1 e não tiver nenhum duelo restante
         // significa que o vencedor é o último time
         if (teamQuantity.current.length === 1 && newDuels.length == 0) {
-
-
-
-
-
-
-            setChampion(teamQuantity.current[0]);
-            navigate("/ChampionPage")
+            navigate("/ChampionPage", {state: {champion: newTeamsRef.current[0]}});
         } else {
             setDuels(newDuels);
             console.log("duels: " + newDuels.length);
         }
 
         console.log("Duelos restantes: " + newDuels.length);
-
 
 
         // Verifica se todos duelos já foram analisados
@@ -125,7 +117,6 @@ export function BattlePage() {
             setRound(prevState => prevState + 1);
             setFinishRound(true);
         }
-
 
 
     }
@@ -138,11 +129,7 @@ export function BattlePage() {
                   direction={"column"}
                   spacing={2}
             >
-                {
-                    duels.length == 1
-                        ? <p className={"battlePageTitle"}>Tournament Final</p>
-                        : <p className={"battlePageTitle"}>Battle Phase {round}</p>
-                }
+                <p className={"battlePageTitle"}>Battle Phase {round}</p>
 
                 <Grid container className="battleContainer">
                     <Grid container
