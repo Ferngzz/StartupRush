@@ -115,17 +115,18 @@ exports.Prisma.StartupScalarFieldEnum = {
   name: 'name',
   slogan: 'slogan',
   founding_year: 'founding_year',
+  tournament_edition: 'tournament_edition',
   score: 'score',
   convincing_pitches: 'convincing_pitches',
-  bugged_products: 'bugged_products',
-  attracted_users: 'attracted_users',
+  buggy_products: 'buggy_products',
+  user_traction: 'user_traction',
   pissed_investor: 'pissed_investor',
   fake_news_pitches: 'fake_news_pitches'
 };
 
 exports.Prisma.TournamentScalarFieldEnum = {
   id_tournament: 'id_tournament',
-  edition: 'edition',
+  tournament_edition: 'tournament_edition',
   id_winner: 'id_winner'
 };
 
@@ -136,13 +137,7 @@ exports.Prisma.BattleScalarFieldEnum = {
   startup_1_score: 'startup_1_score',
   startup_2_score: 'startup_2_score',
   winner_id: 'winner_id',
-  finished: 'finished'
-};
-
-exports.Prisma.EventScalarFieldEnum = {
-  id: 'id',
-  description: 'description',
-  value: 'value'
+  tournament_edition: 'tournament_edition'
 };
 
 exports.Prisma.SortOrder = {
@@ -159,8 +154,7 @@ exports.Prisma.QueryMode = {
 exports.Prisma.ModelName = {
   Startup: 'Startup',
   Tournament: 'Tournament',
-  Battle: 'Battle',
-  Event: 'Event'
+  Battle: 'Battle'
 };
 
 /**
