@@ -8,6 +8,7 @@ export async function addStartup(req: Request, res: Response) {
             name: req.body.name,
             slogan: req.body.slogan,
             founding_year: req.body.founding_year,
+            tournament_edition: req.body.tournament_edition,
         }
 
         const startup = await prisma.startup.create({
